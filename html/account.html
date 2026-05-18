@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Account — Bookstore</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/account.css" />
+  </head>
+
+  <body>
+
+    <!-- HEADER / NAV -->
+    <header class="site-header">
+
+      <div class="nav-top">
+        <div class="nav-logo">
+          <a href="index.html">
+            <img src="assets/images/logo.png" alt="Bookstore Logo" class="logo-img" />
+          </a>
+        </div>
+        <div class="nav-search">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Search by title, author, or ISBN..."
+            aria-label="Search"
+          />
+          <button class="btn btn-search" type="button">Search</button>
+        </div>
+        <div class="nav-actions">
+          <button class="btn btn-cart" type="button" aria-label="Cart">
+            Cart
+            <span class="cart-count">0</span>
+          </button>
+          <button class="btn btn-auth" type="button">Login / Join</button>
+        </div>
+      </div>
+
+      <nav class="nav-genres" aria-label="Genre navigation">
+        <ul class="genre-list">
+          <li class="genre-item"><a href="index.html" class="genre-link">All</a></li>
+          <li class="genre-item"><a href="#" class="genre-link">Fiction</a></li>
+          <li class="genre-item"><a href="#" class="genre-link">Non-Fiction</a></li>
+          <li class="genre-item"><a href="#" class="genre-link">Science</a></li>
+          <li class="genre-item"><a href="#" class="genre-link">Horror</a></li>
+          <li class="genre-item"><a href="#" class="genre-link">Fantasy</a></li>
+        </ul>
+      </nav>
+
+    </header>
+    <!-- END HEADER / NAV -->
+
+
+    <!-- MAIN CONTENT -->
+    <main class="site-main">
+
+      <div class="account-layout">
+
+        <!-- LEFT SIDEBAR -->
+        <aside class="account-sidebar">
+          <nav class="account-nav" aria-label="Account navigation">
+            <ul class="account-nav-list">
+              <li class="account-nav-item account-nav-item--active">
+                <a href="account.html" class="account-nav-link">Overview</a>
+              </li>
+              <li class="account-nav-item">
+                <a href="#" class="account-nav-link">My Orders</a>
+              </li>
+              <li class="account-nav-item">
+                <a href="#" class="account-nav-link">Wishlist</a>
+              </li>
+              <li class="account-nav-item">
+                <a href="#" class="account-nav-link">Account Details</a>
+              </li>
+              <li class="account-nav-item">
+                <a href="index.html" class="account-nav-link account-nav-link--logout">Sign Out</a>
+              </li>
+            </ul>
+          </nav>
+        </aside>
+
+        <!-- RIGHT CONTENT -->
+        <div class="account-content">
+
+          <!-- GREETING -->
+          <h1 class="account-greeting">Hi, Name</h1>
+
+          <!-- STAT CARDS -->
+          <div class="account-stats">
+
+            <div class="account-stat-card">
+              <p class="account-stat-label">Total Orders</p>
+              <p class="account-stat-value">—</p>
+            </div>
+
+            <div class="account-stat-card">
+              <p class="account-stat-label">Wishlist Items</p>
+              <p class="account-stat-value">—</p>
+            </div>
+
+            <div class="account-stat-card">
+              <p class="account-stat-label">Reward Points</p>
+              <p class="account-stat-value">—</p>
+            </div>
+
+            <div class="account-stat-card">
+              <p class="account-stat-label">Member Since</p>
+              <p class="account-stat-value">—</p>
+            </div>
+
+          </div>
+
+          <!-- RECENT ORDER -->
+          <div class="account-card">
+            <h2 class="account-card-heading">Recent Order</h2>
+            <div class="account-card-placeholder">
+              <p class="account-placeholder-text">Your most recent order will appear here</p>
+            </div>
+          </div>
+
+          <!-- BOTTOM ROW -->
+          <div class="account-bottom-row">
+
+            <!-- SAVED ADDRESS -->
+            <div class="account-card account-card--address">
+              <h2 class="account-card-heading">Saved Address</h2>
+              <div class="account-address">
+                <p class="account-address-line" id="account-name">Name</p>
+                <p class="account-address-line" id="account-address1">Address Line 1</p>
+                <p class="account-address-line" id="account-address2">Address Line 2</p>
+                <p class="account-address-line" id="account-city-state">City, State, Postcode</p>
+                <p class="account-address-line" id="account-country">Country</p>
+              </div>
+            </div>
+
+            <!-- RECOMMENDED BOOKS -->
+            <div class="account-recommended">
+              <h2 class="account-card-heading">Recommended</h2>
+              <div class="account-book-row">
+
+                <article class="book-card">
+                  <div class="book-cover-wrap">
+                    <div class="book-cover-placeholder"></div>
+                  </div>
+                  <div class="book-info">
+                    <p class="book-title">Book Title</p>
+                    <p class="book-author">Author Name</p>
+                    <p class="book-price">$<span>22.99</span></p>
+                  </div>
+                </article>
+
+                <article class="book-card">
+                  <div class="book-cover-wrap">
+                    <div class="book-cover-placeholder"></div>
+                  </div>
+                  <div class="book-info">
+                    <p class="book-title">Book Title</p>
+                    <p class="book-author">Author Name</p>
+                    <p class="book-price">$<span>17.99</span></p>
+                  </div>
+                </article>
+
+                <article class="book-card">
+                  <div class="book-cover-wrap">
+                    <div class="book-cover-placeholder"></div>
+                  </div>
+                  <div class="book-info">
+                    <p class="book-title">Book Title</p>
+                    <p class="book-author">Author Name</p>
+                    <p class="book-price">$<span>29.99</span></p>
+                  </div>
+                </article>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+    <!-- END MAIN CONTENT -->
+
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+
+      <div class="footer-inner">
+
+        <div class="footer-brand">
+          <a href="index.html">
+            <img src="assets/images/logo.png" alt="Bookstore Logo" class="logo-img logo-img--footer" />
+          </a>
+          <p class="footer-tagline">Your next great read, delivered.</p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer navigation">
+
+          <div class="footer-nav-column">
+            <h3 class="footer-nav-heading">Shop</h3>
+            <ul class="footer-nav-list">
+              <li><a href="#" class="footer-nav-link">All Books</a></li>
+              <li><a href="#" class="footer-nav-link">New Arrivals</a></li>
+              <li><a href="#" class="footer-nav-link">Best Sellers</a></li>
+              <li><a href="#" class="footer-nav-link">On Sale</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-nav-column">
+            <h3 class="footer-nav-heading">Genres</h3>
+            <ul class="footer-nav-list">
+              <li><a href="#" class="footer-nav-link">Fiction</a></li>
+              <li><a href="#" class="footer-nav-link">Non-Fiction</a></li>
+              <li><a href="#" class="footer-nav-link">Science</a></li>
+              <li><a href="#" class="footer-nav-link">Horror</a></li>
+              <li><a href="#" class="footer-nav-link">Fantasy</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-nav-column">
+            <h3 class="footer-nav-heading">Account</h3>
+            <ul class="footer-nav-list">
+              <li><a href="login.html" class="footer-nav-link">Login</a></li>
+              <li><a href="login.html" class="footer-nav-link">Register</a></li>
+              <li><a href="account.html" class="footer-nav-link">My Account</a></li>
+              <li><a href="#" class="footer-nav-link">My Orders</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-nav-column">
+            <h3 class="footer-nav-heading">Help</h3>
+            <ul class="footer-nav-list">
+              <li><a href="#" class="footer-nav-link">FAQ</a></li>
+              <li><a href="#" class="footer-nav-link">Shipping Info</a></li>
+              <li><a href="#" class="footer-nav-link">Returns</a></li>
+              <li><a href="#" class="footer-nav-link">Contact Us</a></li>
+            </ul>
+          </div>
+
+        </nav>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2026 Bookstore. All rights reserved.</p>
+        <ul class="footer-legal-links">
+          <li><a href="#" class="footer-nav-link">Privacy Policy</a></li>
+          <li><a href="#" class="footer-nav-link">Terms of Service</a></li>
+        </ul>
+      </div>
+
+    </footer>
+    <!-- END FOOTER -->
+
+  </body>
+</html>

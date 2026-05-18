@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login — Bookstore</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/login.css" />
+    <style>
+  #formSignIn { display: none; }
+  #formJoin { display: flex !important; }
+  #btnJoin { background-color: var(--color-accent); color: var(--color-text); font-weight: 600; }
+  #btnSignIn { background-color: var(--color-secondary); color: var(--color-text-muted); font-weight: 500; }
+</style>
+  </head>
+
+  <body>
+
+    <!-- HEADER / NAV -->
+    <header class="site-header">
+
+      <div class="nav-top">
+        <div class="nav-logo">
+          <a href="index.html">
+            <img src="assets/images/logo.png" alt="Bookstore Logo" class="logo-img" />
+          </a>
+        </div>
+        <div class="nav-search">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Search by title, author, or ISBN..."
+            aria-label="Search"
+          />
+          <button class="btn btn-search" type="button">Search</button>
+        </div>
+        <div class="nav-actions">
+          <button class="btn btn-cart" type="button" aria-label="Cart">
+            Cart
+            <span class="cart-count">0</span>
+          </button>
+          <button class="btn btn-login" type="button">Login / Join</button>
+        </div>
+      </div>
+
+      <nav class="nav-genres" aria-label="Genre navigation">
+        <ul class="genre-list">
+          <li class="genre-item"><a href="index.html" class="genre-link">All</a></li>
+          <li class="genre-item"><a href="#" class="genre-link">Fiction</a></li>
+          <li class="genre-item"><a href="#" class="genre-link">Non-Fiction</a></li>
+          <li class="genre-item"><a href="#" class="genre-link">Science</a></li>
+          <li class="genre-item"><a href="#" class="genre-link">Horror</a></li>
+          <li class="genre-item"><a href="#" class="genre-link">Fantasy</a></li>
+        </ul>
+      </nav>
+
+    </header>
+    <!-- END HEADER / NAV -->
+
+
+    <!-- MAIN CONTENT -->
+    <main class="site-main">
+
+      <div class="login-wrapper">
+        <div class="login-card">
+
+          <!-- TOGGLE -->
+          <div class="login-toggle">
+            <button class="login-toggle-btn login-toggle-btn--active" id="btnSignIn" type="button">Sign In</button>
+            <button class="login-toggle-btn" id="btnJoin" type="button">Join</button>
+          </div>
+
+          <!-- SIGN IN FORM -->
+          <div class="login-form" id="formSignIn">
+            <h1 class="login-heading">Welcome Back</h1>
+
+            <div class="form-group">
+              <label class="form-label" for="signin-email">Email</label>
+              <input class="form-input" type="email" id="signin-email" placeholder="you@example.com" autocomplete="email" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="signin-password">Password</label>
+              <input class="form-input" type="password" id="signin-password" placeholder="••••••••" autocomplete="current-password" />
+            </div>
+
+            <button class="btn-login-submit" type="button">Sign In</button>
+
+            <p class="login-switch-hint">
+              Don't have an account?
+              <button class="login-link" id="hintJoin" type="button">Join here</button>
+            </p>
+          </div>
+
+          <!-- JOIN FORM -->
+          <div class="login-form login-form--hidden" id="formJoin">
+            <h1 class="login-heading">Create an Account</h1>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="join-firstname">First Name</label>
+                <input class="form-input" type="text" id="join-firstname" placeholder="Jane" autocomplete="given-name" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="join-lastname">Last Name</label>
+                <input class="form-input" type="text" id="join-lastname" placeholder="Smith" autocomplete="family-name" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="join-email">Email</label>
+              <input class="form-input" type="email" id="join-email" placeholder="you@example.com" autocomplete="email" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="join-confirm-email">Confirm Email</label>
+              <input class="form-input" type="email" id="join-confirm-email" placeholder="you@example.com" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="join-phone">Phone</label>
+              <input class="form-input" type="tel" id="join-phone" placeholder="+61 400 000 000" autocomplete="tel" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="join-password">Password</label>
+              <input class="form-input" type="password" id="join-password" placeholder="••••••••" autocomplete="new-password" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="join-confirm-password">Confirm Password</label>
+              <input class="form-input" type="password" id="join-confirm-password" placeholder="••••••••" autocomplete="new-password" />
+            </div>
+
+            <button class="btn-login-submit" type="button">Create Account</button>
+
+            <p class="login-switch-hint">
+              Already have an account?
+              <button class="login-link" id="hintSignIn" type="button">Sign in here</button>
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+    <!-- END MAIN CONTENT -->
+
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+
+      <div class="footer-inner">
+
+        <div class="footer-brand">
+          <a href="index.html">
+            <img src="assets/images/logo.png" alt="Bookstore Logo" class="logo-img logo-img--footer" />
+          </a>
+          <p class="footer-tagline">Your next great read, delivered.</p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer navigation">
+
+          <div class="footer-nav-column">
+            <h3 class="footer-nav-heading">Shop</h3>
+            <ul class="footer-nav-list">
+              <li><a href="#" class="footer-nav-link">All Books</a></li>
+              <li><a href="#" class="footer-nav-link">New Arrivals</a></li>
+              <li><a href="#" class="footer-nav-link">Best Sellers</a></li>
+              <li><a href="#" class="footer-nav-link">On Sale</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-nav-column">
+            <h3 class="footer-nav-heading">Genres</h3>
+            <ul class="footer-nav-list">
+              <li><a href="#" class="footer-nav-link">Fiction</a></li>
+              <li><a href="#" class="footer-nav-link">Non-Fiction</a></li>
+              <li><a href="#" class="footer-nav-link">Science</a></li>
+              <li><a href="#" class="footer-nav-link">Horror</a></li>
+              <li><a href="#" class="footer-nav-link">Fantasy</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-nav-column">
+            <h3 class="footer-nav-heading">Account</h3>
+            <ul class="footer-nav-list">
+              <li><a href="login.html" class="footer-nav-link">Login</a></li>
+              <li><a href="login.html" class="footer-nav-link">Register</a></li>
+              <li><a href="#" class="footer-nav-link">My Orders</a></li>
+              <li><a href="#" class="footer-nav-link">Wishlist</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-nav-column">
+            <h3 class="footer-nav-heading">Help</h3>
+            <ul class="footer-nav-list">
+              <li><a href="#" class="footer-nav-link">FAQ</a></li>
+              <li><a href="#" class="footer-nav-link">Shipping Info</a></li>
+              <li><a href="#" class="footer-nav-link">Returns</a></li>
+              <li><a href="#" class="footer-nav-link">Contact Us</a></li>
+            </ul>
+          </div>
+
+        </nav>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2026 Bookstore. All rights reserved.</p>
+        <ul class="footer-legal-links">
+          <li><a href="#" class="footer-nav-link">Privacy Policy</a></li>
+          <li><a href="#" class="footer-nav-link">Terms of Service</a></li>
+        </ul>
+      </div>
+
+    </footer>
+    <!-- END FOOTER -->
+
+  </body>
+</html>

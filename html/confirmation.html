@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Confirmed: Bookstore</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/confirmation.css" />
+  </head>
+
+  <body>
+
+    <!-- HEADER / NAV -->
+    <header class="site-header">
+
+      <div class="nav-top">
+        <div class="nav-logo">
+          <a href="index.html">
+            <img src="assets/images/logo.png" alt="Bookstore Logo" class="logo-img" />
+          </a>
+        </div>
+        <div class="nav-search">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Search by title, author, or ISBN..."
+            aria-label="Search"
+          />
+          <button class="btn btn-search" type="button">Search</button>
+        </div>
+        <div class="nav-actions">
+          <button class="btn btn-cart" type="button" aria-label="Cart">
+            Cart
+            <span class="cart-count">0</span>
+          </button>
+          <button class="btn btn-auth" type="button">Login / Join</button>
+        </div>
+      </div>
+
+      <nav class="nav-genres" aria-label="Genre navigation">
+        <ul class="genre-list">
+          <li class="genre-item"><a href="index.html" class="genre-link">All</a></li>
+          <li class="genre-item"><a href="#" class="genre-link">Fiction</a></li>
+          <li class="genre-item"><a href="#" class="genre-link">Non-Fiction</a></li>
+          <li class="genre-item"><a href="#" class="genre-link">Science</a></li>
+          <li class="genre-item"><a href="#" class="genre-link">Horror</a></li>
+          <li class="genre-item"><a href="#" class="genre-link">Fantasy</a></li>
+        </ul>
+      </nav>
+
+    </header>
+    <!-- END HEADER / NAV -->
+
+
+    <!-- MAIN CONTENT -->
+    <main class="site-main">
+
+      <div class="confirmation-layout">
+
+        <!-- LEFT -->
+        <div class="confirmation-left">
+
+          <div class="confirmation-message">
+            <h1 class="confirmation-heading">Thanks, Name</h1>
+            <p class="confirmation-subheading">Your order is confirmed</p>
+            <p class="confirmation-receipt">Receipt sent to &lt;customer_email&gt;</p>
+          </div>
+
+          <div class="confirmation-details-card">
+            <div class="confirmation-detail-group">
+              <p class="confirmation-detail-label">Order Number</p>
+              <p class="confirmation-detail-value confirmation-detail-value--large">#00000</p>
+            </div>
+            <div class="confirmation-detail-group">
+              <p class="confirmation-detail-label">Estimated Delivery</p>
+              <p class="confirmation-detail-value confirmation-detail-value--large">placeholder dummy date</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT -->
+        <div class="confirmation-right">
+          <div class="confirmation-order-card">
+            <h2 class="confirmation-order-heading">On its way</h2>
+
+            <!-- ORDER ITEMS -->
+            <div class="confirmation-items">
+
+              <div class="confirmation-item">
+                <div class="confirmation-item-cover">
+                  <div class="confirmation-cover-placeholder"></div>
+                </div>
+                <div class="confirmation-item-details">
+                  <div class="confirmation-item-top">
+                    <div class="confirmation-item-info">
+                      <p class="confirmation-item-title">Book Title</p>
+                      <p class="confirmation-item-author">Author Name</p>
+                    </div>
+                    <div class="confirmation-item-quantity">
+                      <button class="quantity-btn" type="button" aria-label="Decrease">−</button>
+                      <span class="quantity-value">1</span>
+                      <button class="quantity-btn" type="button" aria-label="Increase">+</button>
+                    </div>
+                  </div>
+                  <p class="confirmation-item-price">$24.99</p>
+                </div>
+              </div>
+
+              <div class="confirmation-item">
+                <div class="confirmation-item-cover">
+                  <div class="confirmation-cover-placeholder"></div>
+                </div>
+                <div class="confirmation-item-details">
+                  <div class="confirmation-item-top">
+                    <div class="confirmation-item-info">
+                      <p class="confirmation-item-title">Book Title</p>
+                      <p class="confirmation-item-author">Author Name</p>
+                    </div>
+                    <div class="confirmation-item-quantity">
+                      <button class="quantity-btn" type="button" aria-label="Decrease">−</button>
+                      <span class="quantity-value">1</span>
+                      <button class="quantity-btn" type="button" aria-label="Increase">+</button>
+                    </div>
+                  </div>
+                  <p class="confirmation-item-price">$17.99</p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- SUBTOTAL -->
+            <div class="confirmation-subtotal">
+              <span class="confirmation-subtotal-label">Subtotal</span>
+              <span class="confirmation-subtotal-value">$42.98</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+    <!-- END MAIN CONTENT -->
+
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+
+      <div class="footer-inner">
+
+        <div class="footer-brand">
+          <a href="index.html">
+            <img src="assets/images/logo.png" alt="Bookstore Logo" class="logo-img logo-img--footer" />
+          </a>
+          <p class="footer-tagline">Your next great read, delivered.</p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer navigation">
+
+          <div class="footer-nav-column">
+            <h3 class="footer-nav-heading">Shop</h3>
+            <ul class="footer-nav-list">
+              <li><a href="#" class="footer-nav-link">All Books</a></li>
+              <li><a href="#" class="footer-nav-link">New Arrivals</a></li>
+              <li><a href="#" class="footer-nav-link">Best Sellers</a></li>
+              <li><a href="#" class="footer-nav-link">On Sale</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-nav-column">
+            <h3 class="footer-nav-heading">Genres</h3>
+            <ul class="footer-nav-list">
+              <li><a href="#" class="footer-nav-link">Fiction</a></li>
+              <li><a href="#" class="footer-nav-link">Non-Fiction</a></li>
+              <li><a href="#" class="footer-nav-link">Science</a></li>
+              <li><a href="#" class="footer-nav-link">Horror</a></li>
+              <li><a href="#" class="footer-nav-link">Fantasy</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-nav-column">
+            <h3 class="footer-nav-heading">Account</h3>
+            <ul class="footer-nav-list">
+              <li><a href="login.html" class="footer-nav-link">Login</a></li>
+              <li><a href="login.html" class="footer-nav-link">Register</a></li>
+              <li><a href="#" class="footer-nav-link">My Orders</a></li>
+              <li><a href="#" class="footer-nav-link">Wishlist</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-nav-column">
+            <h3 class="footer-nav-heading">Help</h3>
+            <ul class="footer-nav-list">
+              <li><a href="#" class="footer-nav-link">FAQ</a></li>
+              <li><a href="#" class="footer-nav-link">Shipping Info</a></li>
+              <li><a href="#" class="footer-nav-link">Returns</a></li>
+              <li><a href="#" class="footer-nav-link">Contact Us</a></li>
+            </ul>
+          </div>
+
+        </nav>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2026 Bookstore. All rights reserved.</p>
+        <ul class="footer-legal-links">
+          <li><a href="#" class="footer-nav-link">Privacy Policy</a></li>
+          <li><a href="#" class="footer-nav-link">Terms of Service</a></li>
+        </ul>
+      </div>
+
+    </footer>
+    <!-- END FOOTER -->
+
+  </body>
+</html>

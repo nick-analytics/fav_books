@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Title — Bookstore</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/book.css" />
+   
+  </head>
+
+  <body>
+
+    <!--  HEADER / NAV  -->
+    <header class="site-header">
+
+      <div class="nav-top">
+        <div class="nav-logo">
+          <a href="index.html">
+            <img src="assets/images/logo.png" alt="Bookstore Logo" class="logo-img" />
+          </a>
+        </div>
+        <div class="nav-search">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Search by title, author, or ISBN..."
+            aria-label="Search"
+          />
+          <button class="btn btn-search" type="button">Search</button>
+        </div>
+        <div class="nav-actions">
+          <button class="btn btn-cart" type="button" aria-label="Cart">
+            Cart
+            <span class="cart-count">0</span>
+          </button>
+          <button class="btn btn-auth" type="button">Login / Join</button>
+        </div>
+      </div>
+
+      <nav class="nav-genres" aria-label="Genre navigation">
+        <ul class="genre-list">
+          <li class="genre-item"><a href="index.html" class="genre-link">All</a></li>
+          <li class="genre-item"><a href="#" class="genre-link">Fiction</a></li>
+          <li class="genre-item"><a href="#" class="genre-link">Non-Fiction</a></li>
+          <li class="genre-item"><a href="#" class="genre-link">Science</a></li>
+          <li class="genre-item"><a href="#" class="genre-link">Horror</a></li>
+          <li class="genre-item"><a href="#" class="genre-link">Fantasy</a></li>
+        </ul>
+      </nav>
+
+    </header>
+    <!--  END HEADER / NAV  -->
+
+
+    <!--  MAIN CONTENT  -->
+    <main class="site-main">
+
+      <!--  BOOK DETAIL  -->
+      <section class="book-detail">
+
+        <!-- LEFT: Book cover -->
+        <div class="book-detail-cover">
+          <div class="book-cover-placeholder book-cover-placeholder--large"></div>
+        </div>
+
+        <!-- MIDDLE: Book info -->
+        <div class="book-detail-info">
+          <h1 class="book-detail-title">Book Title</h1>
+          <p class="book-detail-author">by Author Name</p>
+          <p class="book-detail-genre">Genre</p>
+          <p class="book-detail-description">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+            nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi
+            enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+            nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in
+            hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu
+            feugiat nulla facilisis at vero eros et accumsan.
+          </p>
+        </div>
+
+        <!-- RIGHT: Purchase panel -->
+        <div class="book-detail-panel">
+
+          <p class="book-detail-price">$<span class="book-detail-price-value">24.99</span> <span class="book-detail-currency">AUD</span></p>
+
+          <!-- Format toggle: Hardcover / Paperback -->
+          <div class="book-format-group">
+            <button class="btn btn-format btn-format--active" type="button">Hardcover</button>
+            <button class="btn btn-format" type="button">Paperback</button>
+          </div>
+
+          <!-- Quantity selector -->
+          <div class="book-quantity-wrap">
+            <label class="quantity-label" for="book-quantity">Quantity</label>
+            <div class="quantity-control">
+              <button class="quantity-btn" type="button" aria-label="Decrease quantity">−</button>
+              <input
+                type="number"
+                id="book-quantity"
+                class="quantity-input"
+                value="1"
+                min="1"
+                max="99"
+                aria-label="Quantity"
+              />
+              <button class="quantity-btn" type="button" aria-label="Increase quantity">+</button>
+            </div>
+          </div>
+
+          <!-- Add to cart -->
+          <button class="btn btn-add-to-cart" type="button">Add to Cart</button>
+
+        </div>
+
+      </section>
+
+      <!--  SEE ALSO  -->
+      <section class="book-shelf">
+        <h2 class="shelf-heading">See Also</h2>
+        <div class="book-grid">
+
+          <article class="book-card">
+            <div class="book-cover-wrap">
+              <div class="book-cover-placeholder"></div>
+            </div>
+            <div class="book-info">
+              <p class="book-title">Book Title</p>
+              <p class="book-author">Author Name</p>
+              <p class="book-price">$<span>22.99</span></p>
+            </div>
+          </article>
+
+          <article class="book-card">
+            <div class="book-cover-wrap">
+              <div class="book-cover-placeholder"></div>
+            </div>
+            <div class="book-info">
+              <p class="book-title">Book Title</p>
+              <p class="book-author">Author Name</p>
+              <p class="book-price">$<span>17.99</span></p>
+            </div>
+          </article>
+
+          <article class="book-card">
+            <div class="book-cover-wrap">
+              <div class="book-cover-placeholder"></div>
+            </div>
+            <div class="book-info">
+              <p class="book-title">Book Title</p>
+              <p class="book-author">Author Name</p>
+              <p class="book-price">$<span>29.99</span></p>
+            </div>
+          </article>
+
+          <article class="book-card">
+            <div class="book-cover-wrap">
+              <div class="book-cover-placeholder"></div>
+            </div>
+            <div class="book-info">
+              <p class="book-title">Book Title</p>
+              <p class="book-author">Author Name</p>
+              <p class="book-price">$<span>14.99</span></p>
+            </div>
+          </article>
+
+          <article class="book-card">
+            <div class="book-cover-wrap">
+              <div class="book-cover-placeholder"></div>
+            </div>
+            <div class="book-info">
+              <p class="book-title">Book Title</p>
+              <p class="book-author">Author Name</p>
+              <p class="book-price">$<span>24.99</span></p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+    </main>
+    <!--  END MAIN CONTENT  -->
+
+
+    <!--  FOOTER  -->
+    <footer class="site-footer">
+
+      <div class="footer-inner">
+
+        <div class="footer-brand">
+          <a href="index.html">
+            <img src="assets/images/logo.png" alt="Bookstore Logo" class="logo-img logo-img--footer" />
+          </a>
+          <p class="footer-tagline">Your next great read, delivered.</p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer navigation">
+
+          <div class="footer-nav-column">
+            <h3 class="footer-nav-heading">Shop</h3>
+            <ul class="footer-nav-list">
+              <li><a href="#" class="footer-nav-link">All Books</a></li>
+              <li><a href="#" class="footer-nav-link">New Arrivals</a></li>
+              <li><a href="#" class="footer-nav-link">Best Sellers</a></li>
+              <li><a href="#" class="footer-nav-link">On Sale</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-nav-column">
+            <h3 class="footer-nav-heading">Genres</h3>
+            <ul class="footer-nav-list">
+              <li><a href="#" class="footer-nav-link">Fiction</a></li>
+              <li><a href="#" class="footer-nav-link">Non-Fiction</a></li>
+              <li><a href="#" class="footer-nav-link">Science</a></li>
+              <li><a href="#" class="footer-nav-link">Horror</a></li>
+              <li><a href="#" class="footer-nav-link">Fantasy</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-nav-column">
+            <h3 class="footer-nav-heading">Account</h3>
+            <ul class="footer-nav-list">
+              <li><a href="#" class="footer-nav-link">Login</a></li>
+              <li><a href="#" class="footer-nav-link">Register</a></li>
+              <li><a href="#" class="footer-nav-link">My Orders</a></li>
+              <li><a href="#" class="footer-nav-link">Wishlist</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-nav-column">
+            <h3 class="footer-nav-heading">Help</h3>
+            <ul class="footer-nav-list">
+              <li><a href="#" class="footer-nav-link">FAQ</a></li>
+              <li><a href="#" class="footer-nav-link">Shipping Info</a></li>
+              <li><a href="#" class="footer-nav-link">Returns</a></li>
+              <li><a href="#" class="footer-nav-link">Contact Us</a></li>
+            </ul>
+          </div>
+
+        </nav>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          &copy; <span id="footer-year"></span> Bookstore. All rights reserved.
+        </p>
+        <ul class="footer-legal-links">
+          <li><a href="#" class="footer-nav-link">Privacy Policy</a></li>
+          <li><a href="#" class="footer-nav-link">Terms of Service</a></li>
+        </ul>
+      </div>
+
+    </footer>
+    <!--  END FOOTER  -->
+
+    <!-- CART DRAWER -->
+        <div class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" role="dialog">
+        
+        <!-- CART HEADER -->
+        <div class="cart-header">
+            <h2 class="cart-title">Cart (<span id="cartCount">2</span>)</h2>
+            <button class="cart-close" type="button" aria-label="Close cart">&#x2715;</button>
+        </div>
+        
+        <!-- CART ITEMS -->
+        <div class="cart-items">
+        
+            <div class="cart-item">
+            <div class="cart-item-cover">
+                <div class="cart-cover-placeholder"></div>
+            </div>
+            <div class="cart-item-details">
+                <div class="cart-item-top">
+                <div class="cart-item-info">
+                    <p class="cart-item-title">Book Title</p>
+                    <p class="cart-item-author">Author Name</p>
+                </div>
+                <div class="cart-item-quantity">
+                    <button class="quantity-btn" type="button" aria-label="Decrease">−</button>
+                    <span class="quantity-value">1</span>
+                    <button class="quantity-btn" type="button" aria-label="Increase">+</button>
+                </div>
+                </div>
+                <p class="cart-item-price">$24.99</p>
+            </div>
+            </div>
+        
+            <div class="cart-item">
+            <div class="cart-item-cover">
+                <div class="cart-cover-placeholder"></div>
+            </div>
+            <div class="cart-item-details">
+                <div class="cart-item-top">
+                <div class="cart-item-info">
+                    <p class="cart-item-title">Book Title</p>
+                    <p class="cart-item-author">Author Name</p>
+                </div>
+                <div class="cart-item-quantity">
+                    <button class="quantity-btn" type="button" aria-label="Decrease">−</button>
+                    <span class="quantity-value">1</span>
+                    <button class="quantity-btn" type="button" aria-label="Increase">+</button>
+                </div>
+                </div>
+                <p class="cart-item-price">$17.99</p>
+            </div>
+            </div>
+        
+        </div>
+        
+        <!-- CART FOOTER -->
+        <div class="cart-footer">
+            <div class="cart-subtotal">
+            <span class="cart-subtotal-label">Subtotal</span>
+            <span class="cart-subtotal-price">$42.98</span>
+            </div>
+            <button class="btn-checkout" type="button">Checkout</button>
+        </div>
+        
+        </div>
+        
+        <!-- CART BACKDROP -->
+        <div class="cart-backdrop" id="cartBackdrop"></div>
+
+  </body>
+</html>

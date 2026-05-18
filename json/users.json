@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "role": "customer",
+    "firstName": "Test",
+    "lastName": "Customer",
+    "email": "test@customer.com",
+    "password": "password",
+    "phone": "+61 400 000 001",
+    "address": {
+      "street1": "123 Test Street",
+      "street2": "",
+      "suburb": "Melbourne",
+      "state": "VIC",
+      "postcode": "3000"
+    },
+    "orderHistory": [1, 2, 3]
+  },
+  {
+    "id": 2,
+    "role": "employee",
+    "firstName": "Test",
+    "lastName": "Manager",
+    "email": "test@manager.com",
+    "password": "testpassword",
+    "phone": "+61 400 000 002",
+    "address": null,
+    "orderHistory": []
+  }
+]

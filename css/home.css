@@ -1,0 +1,198 @@
+/*
+   BOOKSTORE: home.css
+   Styles for index.html only: hero banner, book shelves, book cards
+*/
+
+
+/* HERO BANNER */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  background-color: var(--color-primary);
+  border-radius: var(--border-radius);
+  padding: var(--space-xl) var(--space-2xl);
+  margin-bottom: var(--space-2xl);
+  min-height: 220px;
+}
+
+.hero-content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.hero-label {
+  font-family: var(--font-body);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--color-text);
+}
+
+.hero-subtitle {
+  font-family: var(--font-body);
+  font-size: var(--font-size-md);
+  color: var(--color-text-muted);
+  max-width: 380px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+}
+
+.btn-hero-primary {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent-dark);
+  font-weight: 600;
+  padding: var(--space-sm) var(--space-lg);
+}
+
+.btn-hero-primary:hover { background-color: var(--color-accent-dark); }
+
+.btn-hero-secondary {
+  background-color: transparent;
+  border-color: var(--color-border);
+  font-weight: 500;
+  padding: var(--space-sm) var(--space-lg);
+}
+
+.btn-hero-secondary:hover { background-color: var(--color-secondary); }
+
+/* Hero image placeholder */
+.hero-image { flex: 0 0 auto; }
+
+.hero-image-placeholder {
+  width: 260px;
+  height: 180px;
+  background-color: var(--color-secondary);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-border);
+  background-image:
+    linear-gradient(to bottom right, transparent calc(50% - 0.5px), var(--color-border) calc(50% - 0.5px), var(--color-border) calc(50% + 0.5px), transparent calc(50% + 0.5px)),
+    linear-gradient(to bottom left,  transparent calc(50% - 0.5px), var(--color-border) calc(50% - 0.5px), var(--color-border) calc(50% + 0.5px), transparent calc(50% + 0.5px));
+}
+
+
+/* BOOK SHELVES: DISPLAYS */
+.book-shelf { margin-bottom: var(--space-2xl); }
+
+.shelf-heading {
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-md);
+}
+
+
+/* BOOK CARD */
+.book-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.book-cover-wrap {
+  position: relative;
+  width: 100%;
+}
+
+/* BOOK COVER PLACEHOLDER */
+.book-cover-placeholder {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  background-color: var(--color-secondary);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-border);
+  background-image:
+    linear-gradient(to bottom right, transparent calc(50% - 0.5px), var(--color-border) calc(50% - 0.5px), var(--color-border) calc(50% + 0.5px), transparent calc(50% + 0.5px)),
+    linear-gradient(to bottom left,  transparent calc(50% - 0.5px), var(--color-border) calc(50% - 0.5px), var(--color-border) calc(50% + 0.5px), transparent calc(50% + 0.5px));
+}
+
+/* BOOK COVER IMAGES: CAN USE JS TO POPULATE */
+.book-cover {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-border);
+  display: block;
+}
+
+/* Sale badge */
+.book-badge {
+  position: absolute;
+  top: var(--space-sm);
+  left: var(--space-sm);
+  background-color: var(--color-accent);
+  border: 1px solid var(--color-accent-dark);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  padding: 2px var(--space-xs);
+  border-radius: var(--border-radius);
+}
+
+/* Book info below cover */
+.book-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.book-title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+.book-author {
+  font-family: var(--font-body);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.book-price {
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text);
+  margin-top: 2px;
+}
+
+.price-sale {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.price-original {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+  margin-left: var(--space-xs);
+}
