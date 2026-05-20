@@ -22,9 +22,7 @@
     "firstName": "Test",
     "lastName": "Manager",
     "email": "test@manager.com",
-    "password": "testpassword",
-    "phone": "+61 400 000 002",
-    "address": null,
-    "orderHistory": []
+    "password": "testpassword"
+    
   }
 ]
