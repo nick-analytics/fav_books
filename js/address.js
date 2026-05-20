@@ -7,7 +7,7 @@ class Address{
         this.postcode = postcode;
 
     }
-
+// testing push
  //-- validate address methods --
  // -- Validates all fields that are required. 
     validateRequiredFields() {
