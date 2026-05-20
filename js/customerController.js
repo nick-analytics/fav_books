@@ -30,4 +30,24 @@ class CustomerController{
         }
         return null;
     }
+// create customer if validation is correct. 
+    createCustomer(firstName, lastName, email, password, phone){
+        const id = Date.now();
+        
+
+        return new Customer(id, 'customer', firstName, lastName, email, password, phone, null, []);
+
+    }
+    //registers customer
+
+    registerCustomer(firstName, lastName, email, password, confirmPassword, phone){
+        const error = this.validateRequiredFields(firstName, lastName, email, password, confirmPassword, phone);
+        if (error){
+            return error;
+        }
+        
+        const customer = this.createCustomer(firstName, lastName, email, password, phone);
+        //TODO: this.database.save('users', customer)
+
+    }
 }
