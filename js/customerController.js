@@ -1,9 +1,9 @@
 
 
 class CustomerController{
-    constructor(database, authenticator){
+    constructor(database){
         this.database = database;
-        this.authenticator = authenticator;
+        
 
     }
 
