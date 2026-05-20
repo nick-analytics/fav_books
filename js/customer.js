@@ -8,4 +8,10 @@ class Customer extends User{
         this.orderHistory = orderHistory;
 
     }
+
+
+    //getter method to return address
+    getAddress() {
+        return this.address;
+    }
 }

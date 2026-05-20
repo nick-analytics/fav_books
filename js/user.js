@@ -9,4 +9,15 @@ class User{
         this.email = email;
         this.password = password;
     }
+
+    //methods shared by both 
+    getFullName(){
+        return `${this.firstName} ${this.lastName}`;
+        
+    }
+
+    //getter method for role. 
+    getRole() {
+        return this.role;
+    }
 }
