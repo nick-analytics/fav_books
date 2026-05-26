@@ -33,8 +33,6 @@ class CustomerController{
 // create customer if validation is correct. 
     createCustomer(firstName, lastName, email, password, phone){
         const id = Date.now();
-        
-
         return new Customer(id, 'customer', firstName, lastName, email, password, phone, null, []);
 
     }
@@ -47,7 +45,9 @@ class CustomerController{
         }
         
         const customer = this.createCustomer(firstName, lastName, email, password, phone);
-        //TODO: this.database.save('users', customer)
-
+        const users = this.database.getJsonFiles('users');
+        users.push(customer);
+        this.database.save('users', users);
+        return customer;
     }
 }

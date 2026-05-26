@@ -16,20 +16,39 @@ async initialise(){
             const response = await  fetch(booksFilePath);
             const data = await response.json();
             localStorage.setItem('books', JSON.stringify(data));
+            console.log('books saved!');
         }
         if (!localStorage.getItem('users')){
             const response = await  fetch(usersFilePath);
             const data = await response.json();
             localStorage.setItem('users', JSON.stringify(data));
+            console.log('books saved!');
         }
         if (!localStorage.getItem('orders')){
             const response = await  fetch(ordersFilePath);
             const data = await response.json();
             localStorage.setItem('orders', JSON.stringify(data));
+            console.log('books saved!');
         }
     } catch (error){
         console.error("Error loading JSON:", error)
     }
+    }
 
-}
+    
+//get methods for json files/db
+    getJsonFiles(dbName) {
+        const storeData = localStorage.getItem(dbName);
+        if (storeData){
+            return JSON.parse(storeData);
+        }
+        else {
+            return null;
+        }
+    }
+
+    save(dbName, data) {
+    localStorage.setItem(dbName, JSON.stringify(data));
+    }
+
 }
