@@ -1,7 +1,7 @@
 class TransactionRecord {
   constructor(order, paymentMethod) {
     this.transactionId = Date.now().toString();  // Simple unique ID
-    this.orderId = order.orderId;
+    this.orderId = order.id;
     this.timestamp = new Date().toISOString();
     this.totalAmount = order.getTotal();
     this.paymentMethod = paymentMethod;          // "Card", "Account", etc.
