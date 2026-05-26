@@ -16,10 +16,15 @@ class StoreFront{
             this.setupLoginPage();
         }
     }
-
+// login/join page methods
     setupLoginPage(){
         console.log('setupLoginPage running');
         const signInBtn = document.getElementById('btnSignIn');
+        const joinBtn = document.getElementById('btnJoin');
+        joinBtn.addEventListener('click', () => {
+            console.log('join clicked');
+            this.setupJoinForm();
+        });
         signInBtn.addEventListener( 'click', () => {
             console.log('sign in clicked');
             const email = document.getElementById('signin-email').value;
@@ -33,6 +38,32 @@ class StoreFront{
             const role = this.authenticator.getRole(user);
             this.navigateLogin(role);
         })
+    }
+
+    setupJoinForm(){
+        document.getElementById('formSignIn').classList.add('login-form--hidden');
+        document.getElementById('formJoin').classList.remove('login-form--hidden');
+        const createAccount = document.getElementById('btnCreateAccount');
+
+        createAccount.addEventListener('click', () => {
+            console.log('create clicked');
+             const firstName = document.getElementById('join-firstname').value;
+             const lastName = document.getElementById('join-lastname').value;
+             const email = document.getElementById('join-email').value;
+             const phone = document.getElementById('join-phone').value;
+             const password = document.getElementById('join-password').value;
+             const confirmPassword = document.getElementById('join-confirm-password').value;
+
+             const result = this.customerController.registerCustomer(firstName, lastName, email, password, confirmPassword, phone);
+            
+             if (typeof result === 'string') {
+                 document.getElementById('join-error').textContent = result;
+                 return;
+             }
+            
+             window.location.href = '../html/index.html';
+            
+        });
     }
 
     navigateLogin(role) {
