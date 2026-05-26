@@ -6,7 +6,7 @@ class Database{
     }
 
 // initlisation method to call json files 
-async initialiseJsonLocalStorage(){
+async initialise(){
     const booksFilePath = '../json/books.json';
     const usersFilePath = '../json/users.json';
     const ordersFilePath = '../json/orders.json';
