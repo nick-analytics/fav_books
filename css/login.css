@@ -150,3 +150,9 @@
 }
 
 .login-link:hover { color: var(--color-text-muted); }
+
+.login-error {
+    color: red;
+    font-size: var(--font-size-sm);
+    font-family: var(--font-body);
+}

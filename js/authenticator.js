@@ -17,7 +17,7 @@ class Authenticator{
         return user
        }
        else {
-        return null
+        return 'Incorrect password';
        }
 
     }

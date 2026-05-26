@@ -3,7 +3,7 @@
     "id": 1,
     "role": "customer",
     "firstName": "Test",
-    "lastName": "Customer",
+    "lastName": "customer",
     "email": "test@customer.com",
     "password": "password",
     "phone": "+61 400 000 001",

@@ -6,12 +6,7 @@
     <title>Login — Bookstore</title>
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/login.css" />
-    <style>
-  #formSignIn { display: none; }
-  #formJoin { display: flex !important; }
-  #btnJoin { background-color: var(--color-accent); color: var(--color-text); font-weight: 600; }
-  #btnSignIn { background-color: var(--color-secondary); color: var(--color-text-muted); font-weight: 500; }
-</style>
+    
   </head>
 
   <body>
@@ -66,7 +61,7 @@
 
           <!-- TOGGLE -->
           <div class="login-toggle">
-            <button class="login-toggle-btn login-toggle-btn--active" id="btnSignIn" type="button">Sign In</button>
+            <button class="login-toggle-btn login-toggle-btn--active" type="button">Sign In</button>
             <button class="login-toggle-btn" id="btnJoin" type="button">Join</button>
           </div>
 
@@ -75,6 +70,7 @@
             <h1 class="login-heading">Welcome Back</h1>
 
             <div class="form-group">
+              <p class="login-error" id="signin-error"></p>
               <label class="form-label" for="signin-email">Email</label>
               <input class="form-input" type="email" id="signin-email" placeholder="you@example.com" autocomplete="email" />
             </div>
@@ -84,7 +80,7 @@
               <input class="form-input" type="password" id="signin-password" placeholder="••••••••" autocomplete="current-password" />
             </div>
 
-            <button class="btn-login-submit" type="button">Sign In</button>
+            <button class="btn-login-submit" type="button" id="btnSignIn">Sign In</button>
 
             <p class="login-switch-hint">
               Don't have an account?
@@ -132,11 +128,11 @@
               <input class="form-input" type="password" id="join-confirm-password" placeholder="••••••••" autocomplete="new-password" />
             </div>
 
-            <button class="btn-login-submit" type="button">Create Account</button>
+            <button class="btn-login-submit" type="button" >Create Account</button>
 
             <p class="login-switch-hint">
               Already have an account?
-              <button class="login-link" id="hintSignIn" type="button">Sign in here</button>
+              <button class="login-link"  type="button">Sign in here</button>
             </p>
           </div>
 
@@ -218,8 +214,13 @@
     <!-- END FOOTER -->
 
     //js scripts
-    <script src="../js/user.js"></script>
-    <script src="../js/customer.js"></script>
+    <script src="../js/User.js"></script>
+    <script src="../js/Customer.js"></script>
+    <script src="../js/Employee.js"></script>
+    <script src="../js/database.js"></script>
+    <script src="../js/Authenticator.js"></script>
     <script src="../js/customerController.js"></script>
+    <script src="../js/StoreFront.js"></script>
+    <script src="../js/main.js"></script>
   </body>
 </html>
