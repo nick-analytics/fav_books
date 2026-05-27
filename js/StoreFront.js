@@ -15,7 +15,11 @@ class StoreFront{
             console.log('login page detected');
             this.setupLoginPage();
         }
+        if (document.getElementById('cartDrawer')) {
+            this.setupCart();
+        }
     }
+    
 // login/join page methods
     setupLoginPage(){
         console.log('setupLoginPage running');
@@ -73,5 +77,21 @@ class StoreFront{
         if (role === 'employee'){
             window.location.href = '../html/dashboard.html';
         }
+    }
+// shopping cart drawer methods
+    setupCart(){
+        const cartBtn = document.querySelector('.btn-cart');
+        const drawer = document.getElementById('cartDrawer');
+        const backdrop = document.getElementById('cartBackdrop');
+
+        cartBtn.addEventListener('click', () => {
+            drawer.classList.add('cart-drawer--open');
+            backdrop.classList.add('cart-backdrop--visible');
+        });
+
+        backdrop.addEventListener('click', () => {
+            drawer.classList.remove('cart-drawer--open');
+            backdrop.classList.remove('cart-backdrop--visible');
+        });
     }
 }

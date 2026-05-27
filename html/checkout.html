@@ -281,7 +281,44 @@
 
     </footer>
     <!-- END FOOTER -->
+     <!-- CART DRAWER -->
+    <div class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" role="dialog">
+    
+      <!-- CART HEADER -->
+      <div class="cart-header">
+        <h2 class="cart-title">Cart (<span id="cartCount">0</span>)</h2>
+        <button class="cart-close" type="button" aria-label="Close cart">&#x2715;</button>
+      </div>
+    
+      <!-- CART ITEMS -->
+      <div class="cart-items" id="cartItems">
+      </div>
+    
+      <!-- CART FOOTER -->
+      <div class="cart-footer">
+        <div class="cart-subtotal">
+          <span class="cart-subtotal-label">Subtotal</span>
+          <span class="cart-subtotal-price" id="cartSubtotal">$0.00</span>
+        </div>
+        <button class="btn-checkout" type="button">Checkout</button>
+      </div>
+    
+    </div>
+    
+    <!-- CART BACKDROP -->
+    <div class="cart-backdrop" id="cartBackdrop"></div>
+
+    <script src="../js/User.js"></script>
+    <script src="../js/Customer.js"></script>
+    <script src="../js/Employee.js"></script>
+    <script src="../js/CartItem.js"></script>
+    <script src="../js/ShoppingCart.js"></script>
+    <script src="../js/database.js"></script>
+    <script src="../js/Authenticator.js"></script>
+    <script src="../js/customerController.js"></script>
+    <script src="../js/StoreFront.js"></script>
+    <script src="../js/main.js"></script>
 
   </body>
-  <script src="../js/address.js"></script>
+  
 </html>

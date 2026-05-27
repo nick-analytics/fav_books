@@ -11,7 +11,7 @@ class CartItem {
 
   // Decrease quantity but never below 1
   decrease() {
-    if (this.quantity > 1) {
+    if (this.quantity > 0) {
       this.quantity--;
     }
   }
