@@ -11,12 +11,28 @@ class StoreFront{
     }
 
     bootstrap(){
+        const loggedInUser = localStorage.getItem('loggedInUser');
+        const authBtn = document.querySelector('.btn-auth');
+        
+        if (loggedInUser) {
+            authBtn.textContent = 'Logout';
+            authBtn.addEventListener('click', () => {
+                localStorage.removeItem('loggedInUser');
+                window.location.href = '../html/index.html';
+            });
+        }
         if (document.getElementById('formSignIn')) {
             console.log('login page detected');
             this.setupLoginPage();
         }
         if (document.getElementById('cartDrawer')) {
             this.setupCart();
+        }
+        if (document.getElementById('accountGreeting')) {
+            const userId = localStorage.getItem('loggedInUser');
+            const users = this.database.getJsonFiles('users');
+            const user = users.find(u => u.id == userId);
+            document.getElementById('accountGreeting').textContent = `Hi, ${user.firstName}`;
         }
     }
     
@@ -40,7 +56,7 @@ class StoreFront{
                 return;
             }
             const role = this.authenticator.getRole(user);
-            this.navigateLogin(role);
+            this.navigateLogin(role, user);
         })
     }
 
@@ -70,7 +86,9 @@ class StoreFront{
         });
     }
 
-    navigateLogin(role) {
+    navigateLogin(role, user) {
+        localStorage.setItem('loggedInUser', user.id);
+
         if (role === 'customer'){
             window.location.href = '../html/account.html';
         }
