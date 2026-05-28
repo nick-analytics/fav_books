@@ -34,6 +34,9 @@ class StoreFront{
             const user = users.find(u => u.id == userId);
             document.getElementById('accountGreeting').textContent = `Hi, ${user.firstName}`;
         }
+        if (document.getElementById('btnGenerateReport')) {
+            this.setupDashboard();
+        }
     }
     
 // login/join page methods
@@ -111,5 +114,27 @@ class StoreFront{
             drawer.classList.remove('cart-drawer--open');
             backdrop.classList.remove('cart-backdrop--visible');
         });
+    }
+
+    //dashboard methods 
+
+    setupDashboard() {
+        console.log('setupDashboard running');
+        const btnGenerate = document.getElementById('btnGenerateReport');
+    
+        btnGenerate.addEventListener('click', () => {
+            const orders = this.database.getJsonFiles('orders');
+            const report = new SalesReport(orders);
+            this.renderReport(report);
+    });
+}
+
+    renderReport(report) {
+        const reportOutput = document.getElementById('dashboardReport');
+        reportOutput.innerHTML = `
+            <h2 class="dashboard-report-heading">Sales Report</h2>
+            <p>Total Orders: ${report.totalOrders}</p>
+            <p>Total Revenue: $${report.totalRevenue.toFixed(2)}</p>
+        `;
     }
 }
