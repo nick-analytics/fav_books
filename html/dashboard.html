@@ -1,209 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Employee Dashboard — Bookstore</title>
-    <link rel="stylesheet" href="../css/main.css" />
-    <link rel="stylesheet" href="../css/dashboard.css" />
-  </head>
 
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Employee Dashboard — Bookstore</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+</head>
 
-    <!-- HEADER / NAV -->
-    <header class="site-header">
+<body>
 
-      <div class="nav-top">
-        <div class="nav-logo">
-          <a href="index.html">
-            <img src="assets/images/logo.png" alt="Bookstore Logo" class="logo-img" />
-          </a>
-        </div>
-        <div class="nav-search">
-          <input
-            type="text"
-            class="search-input"
-            placeholder="Search by title, author, or ISBN..."
-            aria-label="Search"
-          />
-          <button class="btn btn-search" type="button">Search</button>
-        </div>
-        <div class="nav-actions">
-          <button class="btn btn-cart" type="button" aria-label="Cart">
-            Cart
-            <span class="cart-count">0</span>
-          </button>
-          <button class="btn btn-auth" type="button">Login / Join</button>
+  <!-- HEADER / NAV -->
+  <header class="site-header">
+
+    <div class="nav-top">
+      <div class="nav-logo">
+        <a href="index.html">
+          <img src="assets/images/logo.png" alt="Bookstore Logo" class="logo-img" />
+        </a>
+      </div>
+      <div class="nav-search">
+        <input type="text" class="search-input" placeholder="Search by title, author, or ISBN..." aria-label="Search" />
+        <button class="btn btn-search" type="button">Search</button>
+      </div>
+      <div class="nav-actions">
+        <button class="btn btn-cart" type="button" aria-label="Cart">
+          Cart
+          <span class="cart-count">0</span>
+        </button>
+        <button class="btn btn-auth" type="button">Login / Join</button>
+      </div>
+    </div>
+
+    <nav class="nav-genres" aria-label="Genre navigation">
+      <ul class="genre-list">
+        <li class="genre-item"><a href="index.html" class="genre-link">All</a></li>
+        <li class="genre-item"><a href="#" class="genre-link">Fiction</a></li>
+        <li class="genre-item"><a href="#" class="genre-link">Non-Fiction</a></li>
+        <li class="genre-item"><a href="#" class="genre-link">Science</a></li>
+        <li class="genre-item"><a href="#" class="genre-link">Horror</a></li>
+        <li class="genre-item"><a href="#" class="genre-link">Fantasy</a></li>
+      </ul>
+    </nav>
+
+  </header>
+  <!-- END HEADER / NAV -->
+
+
+  <!-- MAIN CONTENT -->
+  <main class="site-main">
+
+    <!-- GREETING -->
+    <h1 class="dashboard-greeting">Hi, Name</h1>
+    <p class="dashboard-role">Employee Dashboard</p>
+
+    <!-- STAT CARDS -->
+    <div class="dashboard-stats">
+
+      <div class="dashboard-stat-card">
+        <p class="dashboard-stat-label">Total Sales</p>
+        <p class="dashboard-stat-value">—</p>
+      </div>
+
+      <div class="dashboard-stat-card">
+        <p class="dashboard-stat-label">Orders Today</p>
+        <p class="dashboard-stat-value">—</p>
+      </div>
+
+      <div class="dashboard-stat-card">
+        <p class="dashboard-stat-label">Top Selling Genre</p>
+        <p class="dashboard-stat-value">—</p>
+      </div>
+
+      <div class="dashboard-stat-card">
+        <p class="dashboard-stat-label">New Customers</p>
+        <p class="dashboard-stat-value">—</p>
+      </div>
+
+      <!-- GENERATE REPORT BUTTON CARD -->
+      <div class="dashboard-stat-card dashboard-stat-card--action">
+        <p class="dashboard-stat-label">Sales Report</p>
+        <button class="btn-generate-report" type="button" id="btnGenerateReport">
+          Generate Report
+        </button>
+      </div>
+
+    </div>
+
+    <!-- REPORT OUTPUT -->
+    <div class="dashboard-report" id="dashboardReport">
+      <h2 class="dashboard-report-heading">Sales Report</h2>
+      <div class="dashboard-report-placeholder">
+        <p class="dashboard-placeholder-text">Generated report will appear here</p>
+      </div>
+    </div>
+
+    <!-- PLACEHOLDER SECTIONS -->
+    <div class="dashboard-panels">
+
+      <div class="dashboard-panel">
+        <h2 class="dashboard-panel-heading">Recent Orders</h2>
+        <div class="dashboard-panel-placeholder">
+          <p class="dashboard-placeholder-text">Recent orders will appear here</p>
         </div>
       </div>
 
-      <nav class="nav-genres" aria-label="Genre navigation">
-        <ul class="genre-list">
-          <li class="genre-item"><a href="index.html" class="genre-link">All</a></li>
-          <li class="genre-item"><a href="#" class="genre-link">Fiction</a></li>
-          <li class="genre-item"><a href="#" class="genre-link">Non-Fiction</a></li>
-          <li class="genre-item"><a href="#" class="genre-link">Science</a></li>
-          <li class="genre-item"><a href="#" class="genre-link">Horror</a></li>
-          <li class="genre-item"><a href="#" class="genre-link">Fantasy</a></li>
-        </ul>
+      <div class="dashboard-panel">
+        <h2 class="dashboard-panel-heading">Low Stock</h2>
+        <div class="dashboard-panel-placeholder">
+          <p class="dashboard-placeholder-text">Low stock alerts will appear here</p>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+  <!-- END MAIN CONTENT -->
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+        <a href="index.html">
+          <img src="assets/images/logo.png" alt="Bookstore Logo" class="logo-img logo-img--footer" />
+        </a>
+        <p class="footer-tagline">Your next great read, delivered.</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer navigation">
+
+        <div class="footer-nav-column">
+          <h3 class="footer-nav-heading">Shop</h3>
+          <ul class="footer-nav-list">
+            <li><a href="#" class="footer-nav-link">All Books</a></li>
+            <li><a href="#" class="footer-nav-link">New Arrivals</a></li>
+            <li><a href="#" class="footer-nav-link">Best Sellers</a></li>
+            <li><a href="#" class="footer-nav-link">On Sale</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-column">
+          <h3 class="footer-nav-heading">Genres</h3>
+          <ul class="footer-nav-list">
+            <li><a href="#" class="footer-nav-link">Fiction</a></li>
+            <li><a href="#" class="footer-nav-link">Non-Fiction</a></li>
+            <li><a href="#" class="footer-nav-link">Science</a></li>
+            <li><a href="#" class="footer-nav-link">Horror</a></li>
+            <li><a href="#" class="footer-nav-link">Fantasy</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-column">
+          <h3 class="footer-nav-heading">Account</h3>
+          <ul class="footer-nav-list">
+            <li><a href="login.html" class="footer-nav-link">Login</a></li>
+            <li><a href="login.html" class="footer-nav-link">Register</a></li>
+            <li><a href="account.html" class="footer-nav-link">My Account</a></li>
+            <li><a href="#" class="footer-nav-link">My Orders</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-column">
+          <h3 class="footer-nav-heading">Help</h3>
+          <ul class="footer-nav-list">
+            <li><a href="#" class="footer-nav-link">FAQ</a></li>
+            <li><a href="#" class="footer-nav-link">Shipping Info</a></li>
+            <li><a href="#" class="footer-nav-link">Returns</a></li>
+            <li><a href="#" class="footer-nav-link">Contact Us</a></li>
+          </ul>
+        </div>
+
       </nav>
 
-    </header>
-    <!-- END HEADER / NAV -->
+    </div>
 
+    <div class="footer-bottom">
+      <p class="footer-copyright">&copy; 2026 Bookstore. All rights reserved.</p>
+      <ul class="footer-legal-links">
+        <li><a href="#" class="footer-nav-link">Privacy Policy</a></li>
+        <li><a href="#" class="footer-nav-link">Terms of Service</a></li>
+      </ul>
+    </div>
 
-    <!-- MAIN CONTENT -->
-    <main class="site-main">
+  </footer>
+  <!-- END FOOTER -->
 
-      <!-- GREETING -->
-      <h1 class="dashboard-greeting">Hi, Name</h1>
-      <p class="dashboard-role">Employee Dashboard</p>
+  <script src="../js/User.js"></script>
+  <script src="../js/Customer.js"></script>
+  <script src="../js/Employee.js"></script>
+  <script src="../js/CartItem.js"></script>
+  <script src="../js/ShoppingCart.js"></script>
+  <script src="../js/Database.js"></script>
+  <script src="../js/book.js"></script>
+  <script src="../js/order.js"></script>
+  <script src="../js/transactionrecord.js"></script>
+  <script src="../js/orderprocessor.js"></script>
+  <script src="../js/SalesReport.js"></script>
+  <script src="../js/Authenticator.js"></script>
+  <script src="../js/CustomerController.js"></script>
+  <script src="../js/StoreFront.js"></script>
+  <script src="../js/main.js"></script>
 
-      <!-- STAT CARDS -->
-      <div class="dashboard-stats">
+</body>
 
-        <div class="dashboard-stat-card">
-          <p class="dashboard-stat-label">Total Sales</p>
-          <p class="dashboard-stat-value">—</p>
-        </div>
-
-        <div class="dashboard-stat-card">
-          <p class="dashboard-stat-label">Orders Today</p>
-          <p class="dashboard-stat-value">—</p>
-        </div>
-
-        <div class="dashboard-stat-card">
-          <p class="dashboard-stat-label">Top Selling Genre</p>
-          <p class="dashboard-stat-value">—</p>
-        </div>
-
-        <div class="dashboard-stat-card">
-          <p class="dashboard-stat-label">New Customers</p>
-          <p class="dashboard-stat-value">—</p>
-        </div>
-
-        <!-- GENERATE REPORT BUTTON CARD -->
-        <div class="dashboard-stat-card dashboard-stat-card--action">
-          <p class="dashboard-stat-label">Sales Report</p>
-          <button class="btn-generate-report" type="button" id="btnGenerateReport">
-            Generate Report
-          </button>
-        </div>
-
-      </div>
-
-      <!-- REPORT OUTPUT -->
-      <div class="dashboard-report" id="dashboardReport">
-        <h2 class="dashboard-report-heading">Sales Report</h2>
-        <div class="dashboard-report-placeholder">
-          <p class="dashboard-placeholder-text">Generated report will appear here</p>
-        </div>
-      </div>
-
-      <!-- PLACEHOLDER SECTIONS -->
-      <div class="dashboard-panels">
-
-        <div class="dashboard-panel">
-          <h2 class="dashboard-panel-heading">Recent Orders</h2>
-          <div class="dashboard-panel-placeholder">
-            <p class="dashboard-placeholder-text">Recent orders will appear here</p>
-          </div>
-        </div>
-
-        <div class="dashboard-panel">
-          <h2 class="dashboard-panel-heading">Low Stock</h2>
-          <div class="dashboard-panel-placeholder">
-            <p class="dashboard-placeholder-text">Low stock alerts will appear here</p>
-          </div>
-        </div>
-
-      </div>
-
-    </main>
-    <!-- END MAIN CONTENT -->
-
-
-    <!-- FOOTER -->
-    <footer class="site-footer">
-
-      <div class="footer-inner">
-
-        <div class="footer-brand">
-          <a href="index.html">
-            <img src="assets/images/logo.png" alt="Bookstore Logo" class="logo-img logo-img--footer" />
-          </a>
-          <p class="footer-tagline">Your next great read, delivered.</p>
-        </div>
-
-        <nav class="footer-nav" aria-label="Footer navigation">
-
-          <div class="footer-nav-column">
-            <h3 class="footer-nav-heading">Shop</h3>
-            <ul class="footer-nav-list">
-              <li><a href="#" class="footer-nav-link">All Books</a></li>
-              <li><a href="#" class="footer-nav-link">New Arrivals</a></li>
-              <li><a href="#" class="footer-nav-link">Best Sellers</a></li>
-              <li><a href="#" class="footer-nav-link">On Sale</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-nav-column">
-            <h3 class="footer-nav-heading">Genres</h3>
-            <ul class="footer-nav-list">
-              <li><a href="#" class="footer-nav-link">Fiction</a></li>
-              <li><a href="#" class="footer-nav-link">Non-Fiction</a></li>
-              <li><a href="#" class="footer-nav-link">Science</a></li>
-              <li><a href="#" class="footer-nav-link">Horror</a></li>
-              <li><a href="#" class="footer-nav-link">Fantasy</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-nav-column">
-            <h3 class="footer-nav-heading">Account</h3>
-            <ul class="footer-nav-list">
-              <li><a href="login.html" class="footer-nav-link">Login</a></li>
-              <li><a href="login.html" class="footer-nav-link">Register</a></li>
-              <li><a href="account.html" class="footer-nav-link">My Account</a></li>
-              <li><a href="#" class="footer-nav-link">My Orders</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-nav-column">
-            <h3 class="footer-nav-heading">Help</h3>
-            <ul class="footer-nav-list">
-              <li><a href="#" class="footer-nav-link">FAQ</a></li>
-              <li><a href="#" class="footer-nav-link">Shipping Info</a></li>
-              <li><a href="#" class="footer-nav-link">Returns</a></li>
-              <li><a href="#" class="footer-nav-link">Contact Us</a></li>
-            </ul>
-          </div>
-
-        </nav>
-
-      </div>
-
-      <div class="footer-bottom">
-        <p class="footer-copyright">&copy; 2026 Bookstore. All rights reserved.</p>
-        <ul class="footer-legal-links">
-          <li><a href="#" class="footer-nav-link">Privacy Policy</a></li>
-          <li><a href="#" class="footer-nav-link">Terms of Service</a></li>
-        </ul>
-      </div>
-
-    </footer>
-    <!-- END FOOTER -->
-
-    <script src="../js/User.js"></script>
-    <script src="../js/Customer.js"></script>
-    <script src="../js/Employee.js"></script>
-    <script src="../js/CartItem.js"></script>
-    <script src="../js/ShoppingCart.js"></script>
-    <script src="../js/Database.js"></script>
-    <script src="../js/SalesReport.js"></script>
-    <script src="../js/Authenticator.js"></script>
-    <script src="../js/CustomerController.js"></script>
-    <script src="../js/StoreFront.js"></script>
-    <script src="../js/main.js"></script>
-
-  </body>
 </html>

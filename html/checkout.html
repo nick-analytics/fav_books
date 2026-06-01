@@ -1,324 +1,325 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Checkout — Bookstore</title>
-    <link rel="stylesheet" href="../css/main.css" />
-    <link rel="stylesheet" href="../css/checkout.css" />
-  </head>
 
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout — Bookstore</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/checkout.css" />
+</head>
 
-    <!-- HEADER / NAV -->
-    <header class="site-header">
+<body>
 
-      <div class="nav-top">
-        <div class="nav-logo">
-          <a href="index.html">
-            <img src="assets/images/logo.png" alt="Bookstore Logo" class="logo-img" />
-          </a>
-        </div>
-        <div class="nav-search">
-          <input
-            type="text"
-            class="search-input"
-            placeholder="Search by title, author, or ISBN..."
-            aria-label="Search"
-          />
-          <button class="btn btn-search" type="button">Search</button>
-        </div>
-        <div class="nav-actions">
-          <button class="btn btn-cart" type="button" aria-label="Cart">
-            Cart
-            <span class="cart-count">0</span>
+  <!-- HEADER / NAV -->
+  <header class="site-header">
+
+    <div class="nav-top">
+      <div class="nav-logo">
+        <a href="index.html">
+          <img src="assets/images/logo.png" alt="Bookstore Logo" class="logo-img" />
+        </a>
+      </div>
+      <div class="nav-search">
+        <input type="text" class="search-input" placeholder="Search by title, author, or ISBN..." aria-label="Search" />
+        <button class="btn btn-search" type="button">Search</button>
+      </div>
+      <div class="nav-actions">
+        <button class="btn btn-cart" type="button" aria-label="Cart">
+          Cart
+          <span class="cart-count">0</span>
+        </button>
+        <button class="btn btn-auth" type="button">Login / Join</button>
+      </div>
+    </div>
+
+    <nav class="nav-genres" aria-label="Genre navigation">
+      <ul class="genre-list">
+        <li class="genre-item"><a href="index.html" class="genre-link">All</a></li>
+        <li class="genre-item"><a href="#" class="genre-link">Fiction</a></li>
+        <li class="genre-item"><a href="#" class="genre-link">Non-Fiction</a></li>
+        <li class="genre-item"><a href="#" class="genre-link">Science</a></li>
+        <li class="genre-item"><a href="#" class="genre-link">Horror</a></li>
+        <li class="genre-item"><a href="#" class="genre-link">Fantasy</a></li>
+      </ul>
+    </nav>
+
+  </header>
+  <!-- END HEADER / NAV -->
+
+
+  <!-- MAIN CONTENT -->
+  <main class="site-main">
+
+    <div class="checkout-layout">
+
+      <!-- LEFT COLUMN -->
+      <div class="checkout-left">
+
+        <!-- SHIP TO -->
+        <div class="checkout-card">
+          <h2 class="checkout-card-heading">Ship To</h2>
+
+          <div class="checkout-address-form">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="ship-firstname">First Name</label>
+                <input class="form-input" type="text" id="ship-firstname" placeholder="Jane" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="ship-lastname">Last Name</label>
+                <input class="form-input" type="text" id="ship-lastname" placeholder="Smith" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="ship-address1">Address Line 1</label>
+              <input class="form-input" type="text" id="ship-address1" placeholder="123 Example Street" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="ship-address2">Address Line 2 <span
+                  class="form-label-optional">(optional)</span></label>
+              <input class="form-input" type="text" id="ship-address2" placeholder="Apartment, unit, suite..." />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="ship-city">City</label>
+                <input class="form-input" type="text" id="ship-city" placeholder="Melbourne" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="ship-state">State</label>
+                <input class="form-input" type="text" id="ship-state" placeholder="VIC" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="ship-postcode">Postcode</label>
+                <input class="form-input" type="text" id="ship-postcode" placeholder="3000" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="ship-country">Country</label>
+                <input class="form-input" type="text" id="ship-country" placeholder="Australia" />
+              </div>
+            </div>
+
+            <button class="btn-save-address" type="button">Save Address</button>
+
+          </div>
+
+          <button class="btn-add-item" type="button">
+            <span class="btn-add-icon">+</span> Add
           </button>
-          <button class="btn btn-auth" type="button">Login / Join</button>
+
+        </div>
+
+        <!-- PAYMENT -->
+        <div class="checkout-card">
+          <h2 class="checkout-card-heading">Payment</h2>
+
+          <div class="checkout-payment-placeholder">
+            <p class="payment-autofill-label">Visa •••• 4242 <span class="payment-autofill-tag">autofill</span></p>
+          </div>
+
+          <button class="btn-add-item" type="button">
+            <span class="btn-add-icon">+</span> Add
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN: ORDER SUMMARY -->
+      <div class="checkout-right">
+        <div class="checkout-card">
+          <h2 class="checkout-card-heading">Order Summary</h2>
+
+          <!-- ORDER ITEMS -->
+          <div class="order-items">
+
+            <div class="order-item">
+              <div class="order-item-cover">
+                <div class="order-cover-placeholder"></div>
+              </div>
+              <div class="order-item-details">
+                <div class="order-item-top">
+                  <div class="order-item-info">
+                    <p class="order-item-title">Book Title</p>
+                    <p class="order-item-author">Author Name</p>
+                  </div>
+                  <div class="order-item-quantity">
+                    <button class="quantity-btn" type="button" aria-label="Decrease">−</button>
+                    <span class="quantity-value">1</span>
+                    <button class="quantity-btn" type="button" aria-label="Increase">+</button>
+                  </div>
+                </div>
+                <p class="order-item-price">$24.99</p>
+              </div>
+            </div>
+
+            <div class="order-item">
+              <div class="order-item-cover">
+                <div class="order-cover-placeholder"></div>
+              </div>
+              <div class="order-item-details">
+                <div class="order-item-top">
+                  <div class="order-item-info">
+                    <p class="order-item-title">Book Title</p>
+                    <p class="order-item-author">Author Name</p>
+                  </div>
+                  <div class="order-item-quantity">
+                    <button class="quantity-btn" type="button" aria-label="Decrease">−</button>
+                    <span class="quantity-value">1</span>
+                    <button class="quantity-btn" type="button" aria-label="Increase">+</button>
+                  </div>
+                </div>
+                <p class="order-item-price">$17.99</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ORDER TOTALS -->
+          <div class="order-totals">
+            <div class="order-totals-row">
+              <span class="order-totals-label">Subtotal</span>
+              <span class="order-totals-value">$42.98</span>
+            </div>
+            <div class="order-totals-row">
+              <span class="order-totals-label">Shipping</span>
+              <span class="order-totals-value">$7.99</span>
+            </div>
+            <div class="order-totals-row order-totals-row--total">
+              <span class="order-totals-label">Subtotal</span>
+              <span class="order-totals-value">$50.97</span>
+            </div>
+          </div>
+
+          <button class="btn-place-order" type="button">Place Order</button>
+
         </div>
       </div>
 
-      <nav class="nav-genres" aria-label="Genre navigation">
-        <ul class="genre-list">
-          <li class="genre-item"><a href="index.html" class="genre-link">All</a></li>
-          <li class="genre-item"><a href="#" class="genre-link">Fiction</a></li>
-          <li class="genre-item"><a href="#" class="genre-link">Non-Fiction</a></li>
-          <li class="genre-item"><a href="#" class="genre-link">Science</a></li>
-          <li class="genre-item"><a href="#" class="genre-link">Horror</a></li>
-          <li class="genre-item"><a href="#" class="genre-link">Fantasy</a></li>
-        </ul>
+    </div>
+
+  </main>
+  <!-- END MAIN CONTENT -->
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+        <a href="index.html">
+          <img src="assets/images/logo.png" alt="Bookstore Logo" class="logo-img logo-img--footer" />
+        </a>
+        <p class="footer-tagline">Your next great read, delivered.</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer navigation">
+
+        <div class="footer-nav-column">
+          <h3 class="footer-nav-heading">Shop</h3>
+          <ul class="footer-nav-list">
+            <li><a href="#" class="footer-nav-link">All Books</a></li>
+            <li><a href="#" class="footer-nav-link">New Arrivals</a></li>
+            <li><a href="#" class="footer-nav-link">Best Sellers</a></li>
+            <li><a href="#" class="footer-nav-link">On Sale</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-column">
+          <h3 class="footer-nav-heading">Genres</h3>
+          <ul class="footer-nav-list">
+            <li><a href="#" class="footer-nav-link">Fiction</a></li>
+            <li><a href="#" class="footer-nav-link">Non-Fiction</a></li>
+            <li><a href="#" class="footer-nav-link">Science</a></li>
+            <li><a href="#" class="footer-nav-link">Horror</a></li>
+            <li><a href="#" class="footer-nav-link">Fantasy</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-column">
+          <h3 class="footer-nav-heading">Account</h3>
+          <ul class="footer-nav-list">
+            <li><a href="login.html" class="footer-nav-link">Login</a></li>
+            <li><a href="login.html" class="footer-nav-link">Register</a></li>
+            <li><a href="#" class="footer-nav-link">My Orders</a></li>
+            <li><a href="#" class="footer-nav-link">Wishlist</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-column">
+          <h3 class="footer-nav-heading">Help</h3>
+          <ul class="footer-nav-list">
+            <li><a href="#" class="footer-nav-link">FAQ</a></li>
+            <li><a href="#" class="footer-nav-link">Shipping Info</a></li>
+            <li><a href="#" class="footer-nav-link">Returns</a></li>
+            <li><a href="#" class="footer-nav-link">Contact Us</a></li>
+          </ul>
+        </div>
+
       </nav>
 
-    </header>
-    <!-- END HEADER / NAV -->
-
-
-    <!-- MAIN CONTENT -->
-    <main class="site-main">
-
-      <div class="checkout-layout">
-
-        <!-- LEFT COLUMN -->
-        <div class="checkout-left">
-
-          <!-- SHIP TO -->
-          <div class="checkout-card">
-            <h2 class="checkout-card-heading">Ship To</h2>
-
-            <div class="checkout-address-form">
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label class="form-label" for="ship-firstname">First Name</label>
-                  <input class="form-input" type="text" id="ship-firstname" placeholder="Jane" />
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="ship-lastname">Last Name</label>
-                  <input class="form-input" type="text" id="ship-lastname" placeholder="Smith" />
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="ship-address1">Address Line 1</label>
-                <input class="form-input" type="text" id="ship-address1" placeholder="123 Example Street" />
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="ship-address2">Address Line 2 <span class="form-label-optional">(optional)</span></label>
-                <input class="form-input" type="text" id="ship-address2" placeholder="Apartment, unit, suite..." />
-              </div>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label class="form-label" for="ship-city">City</label>
-                  <input class="form-input" type="text" id="ship-city" placeholder="Melbourne" />
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="ship-state">State</label>
-                  <input class="form-input" type="text" id="ship-state" placeholder="VIC" />
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label class="form-label" for="ship-postcode">Postcode</label>
-                  <input class="form-input" type="text" id="ship-postcode" placeholder="3000" />
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="ship-country">Country</label>
-                  <input class="form-input" type="text" id="ship-country" placeholder="Australia" />
-                </div>
-              </div>
-
-              <button class="btn-save-address" type="button">Save Address</button>
-
-            </div>
-
-            <button class="btn-add-item" type="button">
-              <span class="btn-add-icon">+</span> Add
-            </button>
-
-          </div>
-
-          <!-- PAYMENT -->
-          <div class="checkout-card">
-            <h2 class="checkout-card-heading">Payment</h2>
-
-            <div class="checkout-payment-placeholder">
-              <p class="payment-autofill-label">Visa •••• 4242 <span class="payment-autofill-tag">autofill</span></p>
-            </div>
-
-            <button class="btn-add-item" type="button">
-              <span class="btn-add-icon">+</span> Add
-            </button>
-
-          </div>
-
-        </div>
-
-        <!-- RIGHT COLUMN: ORDER SUMMARY -->
-        <div class="checkout-right">
-          <div class="checkout-card">
-            <h2 class="checkout-card-heading">Order Summary</h2>
-
-            <!-- ORDER ITEMS -->
-            <div class="order-items">
-
-              <div class="order-item">
-                <div class="order-item-cover">
-                  <div class="order-cover-placeholder"></div>
-                </div>
-                <div class="order-item-details">
-                  <div class="order-item-top">
-                    <div class="order-item-info">
-                      <p class="order-item-title">Book Title</p>
-                      <p class="order-item-author">Author Name</p>
-                    </div>
-                    <div class="order-item-quantity">
-                      <button class="quantity-btn" type="button" aria-label="Decrease">−</button>
-                      <span class="quantity-value">1</span>
-                      <button class="quantity-btn" type="button" aria-label="Increase">+</button>
-                    </div>
-                  </div>
-                  <p class="order-item-price">$24.99</p>
-                </div>
-              </div>
-
-              <div class="order-item">
-                <div class="order-item-cover">
-                  <div class="order-cover-placeholder"></div>
-                </div>
-                <div class="order-item-details">
-                  <div class="order-item-top">
-                    <div class="order-item-info">
-                      <p class="order-item-title">Book Title</p>
-                      <p class="order-item-author">Author Name</p>
-                    </div>
-                    <div class="order-item-quantity">
-                      <button class="quantity-btn" type="button" aria-label="Decrease">−</button>
-                      <span class="quantity-value">1</span>
-                      <button class="quantity-btn" type="button" aria-label="Increase">+</button>
-                    </div>
-                  </div>
-                  <p class="order-item-price">$17.99</p>
-                </div>
-              </div>
-
-            </div>
-
-            <!-- ORDER TOTALS -->
-            <div class="order-totals">
-              <div class="order-totals-row">
-                <span class="order-totals-label">Subtotal</span>
-                <span class="order-totals-value">$42.98</span>
-              </div>
-              <div class="order-totals-row">
-                <span class="order-totals-label">Shipping</span>
-                <span class="order-totals-value">$7.99</span>
-              </div>
-              <div class="order-totals-row order-totals-row--total">
-                <span class="order-totals-label">Subtotal</span>
-                <span class="order-totals-value">$50.97</span>
-              </div>
-            </div>
-
-            <button class="btn-place-order" type="button">Place Order</button>
-
-          </div>
-        </div>
-
-      </div>
-
-    </main>
-    <!-- END MAIN CONTENT -->
-
-
-    <!-- FOOTER -->
-    <footer class="site-footer">
-
-      <div class="footer-inner">
-
-        <div class="footer-brand">
-          <a href="index.html">
-            <img src="assets/images/logo.png" alt="Bookstore Logo" class="logo-img logo-img--footer" />
-          </a>
-          <p class="footer-tagline">Your next great read, delivered.</p>
-        </div>
-
-        <nav class="footer-nav" aria-label="Footer navigation">
-
-          <div class="footer-nav-column">
-            <h3 class="footer-nav-heading">Shop</h3>
-            <ul class="footer-nav-list">
-              <li><a href="#" class="footer-nav-link">All Books</a></li>
-              <li><a href="#" class="footer-nav-link">New Arrivals</a></li>
-              <li><a href="#" class="footer-nav-link">Best Sellers</a></li>
-              <li><a href="#" class="footer-nav-link">On Sale</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-nav-column">
-            <h3 class="footer-nav-heading">Genres</h3>
-            <ul class="footer-nav-list">
-              <li><a href="#" class="footer-nav-link">Fiction</a></li>
-              <li><a href="#" class="footer-nav-link">Non-Fiction</a></li>
-              <li><a href="#" class="footer-nav-link">Science</a></li>
-              <li><a href="#" class="footer-nav-link">Horror</a></li>
-              <li><a href="#" class="footer-nav-link">Fantasy</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-nav-column">
-            <h3 class="footer-nav-heading">Account</h3>
-            <ul class="footer-nav-list">
-              <li><a href="login.html" class="footer-nav-link">Login</a></li>
-              <li><a href="login.html" class="footer-nav-link">Register</a></li>
-              <li><a href="#" class="footer-nav-link">My Orders</a></li>
-              <li><a href="#" class="footer-nav-link">Wishlist</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-nav-column">
-            <h3 class="footer-nav-heading">Help</h3>
-            <ul class="footer-nav-list">
-              <li><a href="#" class="footer-nav-link">FAQ</a></li>
-              <li><a href="#" class="footer-nav-link">Shipping Info</a></li>
-              <li><a href="#" class="footer-nav-link">Returns</a></li>
-              <li><a href="#" class="footer-nav-link">Contact Us</a></li>
-            </ul>
-          </div>
-
-        </nav>
-
-      </div>
-
-      <div class="footer-bottom">
-        <p class="footer-copyright">&copy; 2026 Bookstore. All rights reserved.</p>
-        <ul class="footer-legal-links">
-          <li><a href="#" class="footer-nav-link">Privacy Policy</a></li>
-          <li><a href="#" class="footer-nav-link">Terms of Service</a></li>
-        </ul>
-      </div>
-
-    </footer>
-    <!-- END FOOTER -->
-     <!-- CART DRAWER -->
-    <div class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" role="dialog">
-    
-      <!-- CART HEADER -->
-      <div class="cart-header">
-        <h2 class="cart-title">Cart (<span id="cartCount">0</span>)</h2>
-        <button class="cart-close" type="button" aria-label="Close cart">&#x2715;</button>
-      </div>
-    
-      <!-- CART ITEMS -->
-      <div class="cart-items" id="cartItems">
-      </div>
-    
-      <!-- CART FOOTER -->
-      <div class="cart-footer">
-        <div class="cart-subtotal">
-          <span class="cart-subtotal-label">Subtotal</span>
-          <span class="cart-subtotal-price" id="cartSubtotal">$0.00</span>
-        </div>
-        <button class="btn-checkout" type="button">Checkout</button>
-      </div>
-    
     </div>
-    
-    <!-- CART BACKDROP -->
-    <div class="cart-backdrop" id="cartBackdrop"></div>
 
-    <script src="../js/User.js"></script>
-    <script src="../js/Customer.js"></script>
-    <script src="../js/Employee.js"></script>
-    <script src="../js/CartItem.js"></script>
-    <script src="../js/ShoppingCart.js"></script>
-    <script src="../js/database.js"></script>
-    <script src="../js/Authenticator.js"></script>
-    <script src="../js/customerController.js"></script>
-    <script src="../js/StoreFront.js"></script>
-    <script src="../js/main.js"></script>
+    <div class="footer-bottom">
+      <p class="footer-copyright">&copy; 2026 Bookstore. All rights reserved.</p>
+      <ul class="footer-legal-links">
+        <li><a href="#" class="footer-nav-link">Privacy Policy</a></li>
+        <li><a href="#" class="footer-nav-link">Terms of Service</a></li>
+      </ul>
+    </div>
 
-  </body>
-  
+  </footer>
+  <!-- END FOOTER -->
+  <!-- CART DRAWER -->
+  <div class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" role="dialog">
+
+    <!-- CART HEADER -->
+    <div class="cart-header">
+      <h2 class="cart-title">Cart (<span id="cartCount">0</span>)</h2>
+      <button class="cart-close" type="button" aria-label="Close cart">&#x2715;</button>
+    </div>
+
+    <!-- CART ITEMS -->
+    <div class="cart-items" id="cartItems">
+    </div>
+
+    <!-- CART FOOTER -->
+    <div class="cart-footer">
+      <div class="cart-subtotal">
+        <span class="cart-subtotal-label">Subtotal</span>
+        <span class="cart-subtotal-price" id="cartSubtotal">$0.00</span>
+      </div>
+      <button class="btn-checkout" type="button">Checkout</button>
+    </div>
+
+  </div>
+
+  <!-- CART BACKDROP -->
+  <div class="cart-backdrop" id="cartBackdrop"></div>
+
+  <script src="../js/User.js"></script>
+  <script src="../js/Customer.js"></script>
+  <script src="../js/Employee.js"></script>
+  <script src="../js/CartItem.js"></script>
+  <script src="../js/ShoppingCart.js"></script>
+  <script src="../js/database.js"></script>
+  <script src="../js/Authenticator.js"></script>
+  <script src="../js/customerController.js"></script>
+  <script src="../js/book.js"></script>
+  <script src="../js/order.js"></script>
+  <script src="../js/transactionrecord.js"></script>
+  <script src="../js/orderprocessor.js"></script>
+  <script src="../js/StoreFront.js"></script>
+  <script src="../js/main.js"></script>
+
+</body>
+
 </html>
