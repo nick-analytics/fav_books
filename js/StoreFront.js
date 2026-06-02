@@ -146,12 +146,33 @@ class StoreFront{
     //dashboard methods 
 
     setupDashboard() {
-        console.log('setupDashboard running');
-        const btnGenerate = document.getElementById('btnGenerateReport');
-    
-        btnGenerate.addEventListener('click', () => {
-            const orders = this.database.getJsonFiles('orders');
-            const report = new SalesReport(orders);
+        const userId = localStorage.getItem('loggedInUser');
+        const users = this.database.getJsonFiles('users');
+        const user = users.find(u => u.id == userId);
+
+        if (user) {
+            document.querySelector('.dashboard-greeting').textContent = `Hi, ${user.firstName}`;
+        }
+
+        const fullReport = this.reportController.generateSalesReport();
+        const statValues = document.querySelectorAll('.dashboard-stat-value');
+        statValues[0].textContent = `$${fullReport.totalRevenue.toFixed(2)}`;
+        
+        const today = new Date().toISOString().split('T')[0];
+        const todayReport = this.reportController.generateReportByDateRange(today, today);
+        statValues[1].textContent = todayReport.totalOrders;
+
+        const recentOrders = fullReport.orders.slice(-5).reverse();
+        const recentOrdersPanel = document.querySelector('.dashboard-panel-placeholder');
+        recentOrdersPanel.innerHTML = '';
+        recentOrders.forEach(order => {
+            const p = document.createElement('p');
+            p.textContent = `Order #${order.id} — $${order.totalAmount.toFixed(2)} — ${order.status}`;
+            recentOrdersPanel.appendChild(p);
+        });
+
+        document.getElementById('btnGenerateReport').addEventListener('click', () => {
+            const report = this.reportController.generateSalesReport();
             this.renderReport(report);
         });
     }
