@@ -17,12 +17,7 @@ class OrderProcessor {
             customer.id,
             'pending',
             new Date().toISOString(),
-            cart.items.map(item => ({
-                bookId: item.book.id,
-                title: item.book.title,
-                quantity: item.quantity,
-                price: item.book.getEffectivePrice()
-            })),
+            cart.items,
             subtotal,
             shipping,
             totalAmount,

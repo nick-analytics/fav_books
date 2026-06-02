@@ -16,6 +16,15 @@ class StoreFront{
         console.log('on book page:', document.querySelector('.book-detail-title'));
         const loggedInUser = localStorage.getItem('loggedInUser');
         const authBtn = document.querySelector('.btn-auth');
+
+        const savedCart = localStorage.getItem('cart');
+        if (savedCart) {
+            JSON.parse(savedCart).forEach(item => {
+                const cartItem = new CartItem(item.book, item.quantity);
+                this.shoppingCart.items.push(cartItem);
+            });
+        }
+        this.updateCart();
         
         if (loggedInUser) {
             authBtn.textContent = 'Logout';
@@ -46,15 +55,12 @@ class StoreFront{
         if (document.querySelector('.book-detail-title')) {
             this.setupBookPage();
         }
-
-        const savedCart = localStorage.getItem('cart');
-        if (savedCart) {
-            JSON.parse(savedCart).forEach(item => {
-                const cartItem = new CartItem(item.book, item.quantity);
-                this.shoppingCart.items.push(cartItem);
-            });
+        if (document.querySelector('.btn-place-order')) {
+            this.setupCheckoutPage();
         }
-        this.updateCart();
+        
+
+        
     }
     
 // login/join page methods
@@ -211,6 +217,7 @@ class StoreFront{
             const cartItems = document.getElementById('cartItems');
             const cartCount = document.getElementById('cartCount');
             const cartSubtotal = document.getElementById('cartSubtotal');
+             if (!cartItems) return;
 
             cartCount.textContent = this.shoppingCart.items.reduce((total, item) => total + item.quantity, 0);
             cartSubtotal.textContent = `$${this.shoppingCart.getTotal().toFixed(2)}`;
@@ -291,4 +298,71 @@ class StoreFront{
             localStorage.setItem('cart', JSON.stringify(this.shoppingCart.items));
             console.log('cart saved:', localStorage.getItem('cart'));
     }
+
+    setupCheckoutPage() {
+        const userId = localStorage.getItem('loggedInUser');
+        const users = this.database.getJsonFiles('users');
+        const user = users.find(u => u.id == userId);
+
+        if (user) {
+            document.getElementById('ship-firstname').value = user.firstName;
+            document.getElementById('ship-lastname').value = user.lastName;
+        }
+
+        const orderItems = document.querySelector('.order-items');
+        orderItems.innerHTML = '';
+        
+        console.log('cart items:', this.shoppingCart.items.length);
+        this.shoppingCart.items.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'order-item';
+            div.innerHTML = `
+                <div class="order-item-cover"><div class="order-cover-placeholder"></div></div>
+                <div class="order-item-details">
+                    <div class="order-item-top">
+                        <div class="order-item-info">
+                            <p class="order-item-title">${item.book.title}</p>
+                            <p class="order-item-author">${item.book.author}</p>
+                        </div>
+                        <span class="quantity-value">x${item.quantity}</span>
+                    </div>
+                    <p class="order-item-price">$${item.getSubtotal().toFixed(2)}</p>
+                </div>
+            `;
+            orderItems.appendChild(div);
+        });
+
+        const subtotal = this.shoppingCart.getTotal();
+        const shipping = subtotal >= 50 ? 0 : 7.99;
+        const total = subtotal + shipping;
+
+        const totalsRows = document.querySelectorAll('.order-totals-value');
+        totalsRows[0].textContent = `$${subtotal.toFixed(2)}`;
+        totalsRows[1].textContent = `$${shipping.toFixed(2)}`;
+        totalsRows[2].textContent = `$${total.toFixed(2)}`;
+
+        document.querySelector('.btn-place-order').addEventListener('click', () => {
+            const shippingAddress = new Address(
+                document.getElementById('ship-address1').value,
+                document.getElementById('ship-address2').value,
+                document.getElementById('ship-city').value,
+                document.getElementById('ship-state').value,
+                document.getElementById('ship-postcode').value
+            );
+
+            const order = this.orderProcessor.processOrder(
+                this.shoppingCart,
+                user,
+                shippingAddress,
+                'Visa •••• 4242'
+            );
+
+            localStorage.setItem('lastOrder', JSON.stringify(order));
+            localStorage.removeItem('cart');
+            this.shoppingCart.items = [];
+            window.location.href = 'confirmation.html';
+        });
+    }
+
+    
 }
