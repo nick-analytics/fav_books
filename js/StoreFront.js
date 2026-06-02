@@ -37,6 +37,9 @@ class StoreFront{
         if (document.getElementById('btnGenerateReport')) {
             this.setupDashboard();
         }
+        if (document.querySelector('.book-shelf')){
+            this.setupBooks();
+        }
     }
     
 // login/join page methods
@@ -126,8 +129,8 @@ class StoreFront{
             const orders = this.database.getJsonFiles('orders');
             const report = new SalesReport(orders);
             this.renderReport(report);
-    });
-}
+        });
+    }
 
     renderReport(report) {
         const reportOutput = document.getElementById('dashboardReport');
@@ -136,5 +139,27 @@ class StoreFront{
             <p>Total Orders: ${report.totalOrders}</p>
             <p>Total Revenue: $${report.totalRevenue.toFixed(2)}</p>
         `;
+    }
+
+    //book methods. 
+
+    setupBooks(){
+        const books = this.database.getJsonFiles('books');
+        const fictionBooks = books.filter(book => book.genre === 'Fiction');
+        const fictionShelf = document.querySelector('[data-genre="Fiction"]');
+        const cards = fictionShelf.querySelectorAll('.book-card');
+    
+        fictionBooks.forEach((book, index) => {
+            if (cards[index]) {
+                cards[index].querySelector('.book-title').textContent = book.title;
+                cards[index].querySelector('.book-author').textContent = book.author;
+                cards[index].querySelector('.book-price span').textContent = book.price;
+                cards[index].setAttribute('data-book-id', book.id);
+                cards[index].style.cursor = 'pointer';
+                cards[index].addEventListener('click', () => {
+                    window.location.href = `book.html?id=${book.id}`;
+                });
+            }
+        });
     }
 }
