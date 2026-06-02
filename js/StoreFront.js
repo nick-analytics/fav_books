@@ -1,16 +1,19 @@
 
 
 class StoreFront{
-    constructor(database, authenticator, customerController, orderProcessor, reportController){
+    constructor(database, authenticator, customerController, orderProcessor, reportController, shoppingCart){
         this.database = database;
         this.authenticator = authenticator;
         this.customerController = customerController;
         this.orderProcessor = orderProcessor;
         this.reportController = reportController;
+        this.shoppingCart = shoppingCart;
         
     }
 
     bootstrap(){
+        console.log('saved cart:', localStorage.getItem('cart'));
+        console.log('on book page:', document.querySelector('.book-detail-title'));
         const loggedInUser = localStorage.getItem('loggedInUser');
         const authBtn = document.querySelector('.btn-auth');
         
@@ -37,9 +40,21 @@ class StoreFront{
         if (document.getElementById('btnGenerateReport')) {
             this.setupDashboard();
         }
-        if (document.querySelector('.book-shelf')){
+        if (document.querySelector('[data-genre="Fiction"]')){
             this.setupBooks();
+        }   
+        if (document.querySelector('.book-detail-title')) {
+            this.setupBookPage();
         }
+
+        const savedCart = localStorage.getItem('cart');
+        if (savedCart) {
+            JSON.parse(savedCart).forEach(item => {
+                const cartItem = new CartItem(item.book, item.quantity);
+                this.shoppingCart.items.push(cartItem);
+            });
+        }
+        this.updateCart();
     }
     
 // login/join page methods
@@ -161,5 +176,119 @@ class StoreFront{
                 });
             }
         });
+    }
+
+    setupBookPage() {
+        console.log('setupBookPage running');       
+        console.log('URL:', window.location.search);
+        const params = new URLSearchParams(window.location.search);
+        const bookId = parseInt(params.get('id'));
+        const books = this.database.getJsonFiles('books');
+        const book = books.find(b => b.id === bookId);
+        
+        if (!book) return;
+        
+            document.querySelector('.book-detail-title').textContent = book.title;
+            document.querySelector('.book-detail-author').textContent = `by ${book.author}`;
+            document.querySelector('.book-detail-description').textContent = book.description;
+            document.querySelector('.book-detail-price-value').textContent = book.price;
+            document.querySelector('.book-detail-genre').textContent = book.genre;
+
+            const addToCartBtn = document.querySelector('.btn-add-to-cart');
+            addToCartBtn.addEventListener('click', () => {
+                const quantity = parseInt(document.getElementById('book-quantity').value);
+                for (let i = 0; i < quantity; i++) {
+                    this.shoppingCart.addItem(book);
+                }
+                this.updateCart();
+            });
+    }
+
+
+    updateCart() {
+        console.log('updateCart running', this.shoppingCart.items.length);
+        console.log('cartCount element:', document.getElementById('cartCount'));
+            const cartItems = document.getElementById('cartItems');
+            const cartCount = document.getElementById('cartCount');
+            const cartSubtotal = document.getElementById('cartSubtotal');
+
+            cartCount.textContent = this.shoppingCart.items.reduce((total, item) => total + item.quantity, 0);
+            cartSubtotal.textContent = `$${this.shoppingCart.getTotal().toFixed(2)}`;
+            document.querySelector('.cart-count').textContent = this.shoppingCart.items.length;
+
+            cartItems.innerHTML = '';
+
+            this.shoppingCart.items.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+
+                const cover = document.createElement('div');
+                cover.className = 'cart-item-cover';
+                const placeholder = document.createElement('div');
+                placeholder.className = 'cart-cover-placeholder';
+                cover.appendChild(placeholder);
+
+                const details = document.createElement('div');
+                details.className = 'cart-item-details';
+
+                const top = document.createElement('div');
+                top.className = 'cart-item-top';
+
+                const info = document.createElement('div');
+                info.className = 'cart-item-info';
+                const title = document.createElement('p');
+                title.className = 'cart-item-title';
+                title.textContent = item.book.title;
+                const author = document.createElement('p');
+                author.className = 'cart-item-author';
+                author.textContent = item.book.author;
+                info.appendChild(title);
+                info.appendChild(author);
+
+                const quantityDiv = document.createElement('div');
+                quantityDiv.className = 'cart-item-quantity';
+
+                const decreaseBtn = document.createElement('button');
+                decreaseBtn.className = 'quantity-btn';
+                decreaseBtn.textContent = '−';
+                decreaseBtn.addEventListener('click', () => {
+                    this.shoppingCart.decreaseItem(item.book.id);
+                    this.updateCart();
+                });
+
+                const quantitySpan = document.createElement('span');
+                quantitySpan.className = 'quantity-value';
+                quantitySpan.textContent = item.quantity;
+
+                const increaseBtn = document.createElement('button');
+                increaseBtn.className = 'quantity-btn';
+                increaseBtn.textContent = '+';
+                increaseBtn.addEventListener('click', () => {
+                    this.shoppingCart.addItem(item.book);
+                    this.updateCart();
+                });
+
+                quantityDiv.appendChild(decreaseBtn);
+                quantityDiv.appendChild(quantitySpan);
+                quantityDiv.appendChild(increaseBtn);
+
+                top.appendChild(info);
+                top.appendChild(quantityDiv);
+
+                const price = document.createElement('p');
+                price.className = 'cart-item-price';
+                price.textContent = `$${item.getSubtotal().toFixed(2)}`;
+
+                details.appendChild(top);
+                details.appendChild(price);
+
+                cartItem.appendChild(cover);
+                cartItem.appendChild(details);
+
+                cartItems.appendChild(cartItem);
+            });
+            document.querySelector('.cart-count').textContent = this.shoppingCart.items.length;
+            localStorage.setItem('cart', JSON.stringify(this.shoppingCart.items));
+            console.log('cart saved:', localStorage.getItem('cart'));
     }
 }
