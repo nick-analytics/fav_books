@@ -58,6 +58,9 @@ class StoreFront{
         if (document.querySelector('.btn-place-order')) {
             this.setupCheckoutPage();
         }
+        if (document.querySelector('.confirmation-heading')) {
+            this.setupConfirmationPage();
+        }
         
 
         
@@ -382,6 +385,45 @@ class StoreFront{
             this.shoppingCart.items = [];
             window.location.href = 'confirmation.html';
         });
+    }
+
+    setupConfirmationPage() {
+        const order = JSON.parse(localStorage.getItem('lastOrder'));
+        const userId = localStorage.getItem('loggedInUser');
+        const users = this.database.getJsonFiles('users');
+        const user = users.find(u => u.id == userId);
+
+        if (!order || !user) return;
+
+        document.querySelector('.confirmation-heading').textContent = `Thanks, ${user.firstName}`;
+        document.querySelector('.confirmation-receipt').textContent = `Receipt sent to ${user.email}`;
+        document.querySelector('.confirmation-detail-value--large').textContent = `#${order.id}`;
+
+        const itemsContainer = document.querySelector('.confirmation-items');
+        itemsContainer.innerHTML = '';
+
+        order.items.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'confirmation-item';
+            div.innerHTML = `
+                <div class="confirmation-item-cover">
+                    <div class="confirmation-cover-placeholder"></div>
+                </div>
+                <div class="confirmation-item-details">
+                    <div class="confirmation-item-top">
+                        <div class="confirmation-item-info">
+                            <p class="confirmation-item-title">${item.book.title}</p>
+                            <p class="confirmation-item-author">${item.book.author}</p>
+                        </div>
+                        <span class="quantity-value">x${item.quantity}</span>
+                    </div>
+                    <p class="confirmation-item-price">$${(item.book.price * item.quantity).toFixed(2)}</p>
+                </div>
+            `;
+            itemsContainer.appendChild(div);
+        });
+
+        document.querySelector('.confirmation-subtotal-value').textContent = `$${order.totalAmount.toFixed(2)}`;
     }
 
     
