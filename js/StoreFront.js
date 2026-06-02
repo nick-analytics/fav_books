@@ -312,7 +312,6 @@ class StoreFront{
         const orderItems = document.querySelector('.order-items');
         orderItems.innerHTML = '';
         
-        console.log('cart items:', this.shoppingCart.items.length);
         this.shoppingCart.items.forEach(item => {
             const div = document.createElement('div');
             div.className = 'order-item';
@@ -335,14 +334,19 @@ class StoreFront{
         const subtotal = this.shoppingCart.getTotal();
         const shipping = subtotal >= 50 ? 0 : 7.99;
         const total = subtotal + shipping;
-
         const totalsRows = document.querySelectorAll('.order-totals-value');
         totalsRows[0].textContent = `$${subtotal.toFixed(2)}`;
         totalsRows[1].textContent = `$${shipping.toFixed(2)}`;
         totalsRows[2].textContent = `$${total.toFixed(2)}`;
 
-        document.querySelector('.btn-place-order').addEventListener('click', () => {
-            const shippingAddress = new Address(
+        this.setupAddressForm(user);
+    }
+
+    setupAddressForm(user) {
+        let savedAddress = null;
+
+        document.querySelector('.btn-save-address').addEventListener('click', () => {
+            const address = new Address(
                 document.getElementById('ship-address1').value,
                 document.getElementById('ship-address2').value,
                 document.getElementById('ship-city').value,
@@ -350,10 +354,26 @@ class StoreFront{
                 document.getElementById('ship-postcode').value
             );
 
+            const error = address.validateRequiredFields() || address.validateFormat() || address.validateStatePostcodeMatch();
+            if (error) {
+                alert(error);
+                return;
+            }
+
+            savedAddress = address;
+            alert('Address saved!');
+        });
+
+        document.querySelector('.btn-place-order').addEventListener('click', () => {
+            if (!savedAddress) {
+                alert('Please save your address first');
+                return;
+            }
+
             const order = this.orderProcessor.processOrder(
                 this.shoppingCart,
                 user,
-                shippingAddress,
+                savedAddress,
                 'Visa •••• 4242'
             );
 
