@@ -30,7 +30,7 @@ class StoreFront{
             authBtn.textContent = 'Logout';
             authBtn.addEventListener('click', () => {
                 localStorage.removeItem('loggedInUser');
-                window.location.href = '../index.html';
+                window.location.href = '../html/index.html';
             });
         }
         if (document.getElementById('formSignIn')) {
