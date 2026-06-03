@@ -30,7 +30,7 @@ class StoreFront{
             authBtn.textContent = 'Logout';
             authBtn.addEventListener('click', () => {
                 localStorage.removeItem('loggedInUser');
-                window.location.href = '../html/index.html';
+                window.location.href = '../index.html';
             });
         }
         if (document.getElementById('formSignIn')) {
@@ -111,7 +111,7 @@ class StoreFront{
                  return;
              }
             
-             window.location.href = '../html/index.html';
+             window.location.href = '../index.html';
             
         });
     }
@@ -202,7 +202,7 @@ class StoreFront{
                 cards[index].setAttribute('data-book-id', book.id);
                 cards[index].style.cursor = 'pointer';
                 cards[index].addEventListener('click', () => {
-                    window.location.href = `book.html?id=${book.id}`;
+                    window.location.href = `html/book.html?id=${book.id}`;
                 });
             }
         });
