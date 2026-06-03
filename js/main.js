@@ -7,4 +7,6 @@ const reportController = new ReportController(database);
 const shoppingCart = new ShoppingCart();
 const orderProcessor = new OrderProcessor(database);
 const storeFront = new StoreFront(database, authenticator, customerController, orderProcessor, reportController, shoppingCart);
-storeFront.bootstrap();
+database.initialise().then(() => {
+    storeFront.bootstrap();
+});
