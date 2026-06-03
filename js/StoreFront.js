@@ -50,7 +50,7 @@ class StoreFront{
             this.setupDashboard();
         }
         if (document.querySelector('[data-genre="Fiction"]')){
-            this.setupBooks();
+            await this.setupBooks();
         }   
         if (document.querySelector('.book-detail-title')) {
             this.setupBookPage();
@@ -188,7 +188,7 @@ class StoreFront{
 
     //book methods. 
 
-    setupBooks(){
+    async setupBooks(){
         const books = this.database.getJsonFiles('books');
         const fictionBooks = books.filter(book => book.genre === 'Fiction');
         const fictionShelf = document.querySelector('[data-genre="Fiction"]');
